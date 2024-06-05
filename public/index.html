@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Places</title>
+</head>
+<body>
+    <button id="searchPlacesBtn">Search Places</button>
+
+    <script>
+        document.getElementById('searchPlacesBtn').addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+
+                    fetch('/search-places', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ latitude, longitude })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Success:', data);
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+    </script>
+</body>
+</html>
