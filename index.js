@@ -60,12 +60,12 @@ const server = http.createServer(async (req, res) => {
             body += chunk.toString();
         });
         req.on('end', async () => {
-            const { latitude, longitude } = JSON.parse(body);
+            const { latitude, longitude, query } = JSON.parse(body);
 
-            if (latitude && longitude) {
+            if (latitude && longitude && query) {
                 const latlong = `${latitude},${longitude}`;
                 try {
-                    const results = await nearbySearch(latlong);
+                    const results = await nearbySearch(latlong, query);
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify({ status: 'Search completed', results }));
                 } catch (error) {
