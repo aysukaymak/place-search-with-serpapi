@@ -60,13 +60,18 @@ const server = http.createServer(async (req, res) => {
             body += chunk.toString();
         });
         req.on('end', async () => {
-            const { latitude, longitude} = JSON.parse(body);
+            const { latitude, longitude } = JSON.parse(body);
 
             if (latitude && longitude) {
                 const latlong = `${latitude},${longitude}`;
-                await nearbySearch(latlong);
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ status: 'Search completed' }));
+                try {
+                    const results = await nearbySearch(latlong);
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ status: 'Search completed', results }));
+                } catch (error) {
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ status: 'Error', error: error.message }));
+                }
             } else {
                 res.writeHead(400, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ status: 'Bad Request: Missing parameters' }));
@@ -84,5 +89,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running on port http://localhost:${port}`);
 });

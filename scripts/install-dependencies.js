@@ -22,7 +22,7 @@ const runCommand = (command) => {
 //* If new dependencies or modules need to be added to the project, related commands should be written here
 const commands = [
   'npm install dotenv bcrypt jsonwebtoken multer',
-  'npm install serpapi',
+  'npm install serpapi@latest',
   'npm install mongodb mongoose'
 ];
 

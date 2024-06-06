@@ -17,9 +17,9 @@ async function register(req, res) {
 
     try {
         const result = await db.collection('users').insertOne(user);
-        res({ status: 'User registered', userId: result.insertedId });
+        res.status(200).json({ status: 'User registered', userId: result.insertedId });
     } catch (error) {
-        res({ status: 'Error', error });
+        res.status(500).json({ status: 'Error', error: error.message });
     }
 }
 
@@ -30,13 +30,13 @@ async function login(req, res) {
     try {
         const user = await db.collection('users').findOne({ username });
         if (user && await bcrypt.compare(password, user.password)) {
-            const token = jwt.sign({ id: user._id }, jwtSecret);
-            res({ status: 'Login successful', token });
+            const token = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: '1h' });
+            res.status(200).json({ status: 'Login successful', token });
         } else {
-            res({ status: 'Invalid credentials' });
+            res.status(401).json({ status: 'Invalid credentials' });
         }
     } catch (error) {
-        res({ status: 'Error', error });
+        res.status(500).json({ status: 'Error', error: error.message });
     }
 }
 
