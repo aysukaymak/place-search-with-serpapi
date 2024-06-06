@@ -5,11 +5,11 @@ dotenv.config();
 
 const apiKey = `${process.env.SERPAPI_API_KEY}`;
 
-async function searchPlaces(latlong) {
+async function searchPlaces(latlong, query) {
     try {
         const params = {
             engine: "google_maps",
-            q: "pizza",
+            q: query,
             ll: `@${latlong},15.1z`,
             type: "search",
             api_key: apiKey
@@ -24,9 +24,9 @@ async function searchPlaces(latlong) {
     }
 }
 
-async function nearbySearch(latlong) {
+async function nearbySearch(latlong, query) {
     try {
-        return await searchPlaces(latlong);
+        return await searchPlaces(latlong, query);
     } catch (error) {
         console.error("Error in nearbySearch function:", error);
         throw error;

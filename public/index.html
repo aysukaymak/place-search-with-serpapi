@@ -4,12 +4,14 @@
     <title>Search Places</title>
 </head>
 <body>
+    <input type="text" id="searchQuery" placeholder="Enter search query">
     <button id="searchPlacesBtn">Search Places</button>
 
     <script>
         document.getElementById('searchPlacesBtn').addEventListener('click', () => {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
+                    const query = document.getElementById('searchQuery').value;
                     const { latitude, longitude } = position.coords;
 
                     fetch('/search-places', {
@@ -17,7 +19,7 @@
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ latitude, longitude })
+                        body: JSON.stringify({ latitude, longitude, query })
                     })
                         .then(response => response.json())
                         .then(data => {
