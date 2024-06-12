@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url';
 
 import { register, login } from './routes/auth.js';
 import { nearbySearch } from './routes/nearby-search.js';
+import { reverseGeocode } from './routes/reverse-geocode.js';
+import { events } from './routes/events.js';
 
 dotenv.config();
 
@@ -72,6 +74,25 @@ const server = http.createServer(async (req, res) => {
                     res.writeHead(500, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify({ status: 'Error', error: error.message }));
                 }
+            } else {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ status: 'Bad Request: Missing parameters' }));
+            }
+        });
+    } else if (pathName === '/find-events' && method === 'POST') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', async () => {
+            const { latitude, longitude } = JSON.parse(body);
+
+            if (latitude && longitude) {
+                // Use reverse geocoding to find the city name
+                const city = await reverseGeocode(latitude, longitude);
+                const eventsData = await events(city);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ status: 'Events search completed', events: eventsData }));
             } else {
                 res.writeHead(400, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ status: 'Bad Request: Missing parameters' }));
