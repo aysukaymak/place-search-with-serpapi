@@ -6,12 +6,14 @@
 <body>
     <input type="text" id="searchQuery" placeholder="Enter search query">
     <button id="searchPlacesBtn">Search Places</button>
+    <button id="findEventsBtn">Find Events</button>
 
     <script>
         document.getElementById('searchPlacesBtn').addEventListener('click', () => {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     const query = document.getElementById('searchQuery').value;
+                    console.log(position);
                     const { latitude, longitude } = position.coords;
 
                     fetch('/search-places', {
@@ -20,6 +22,31 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({ latitude, longitude, query })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Success:', data);
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+
+        document.getElementById('findEventsBtn').addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+
+                    fetch('/find-events', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ latitude, longitude })
                     })
                         .then(response => response.json())
                         .then(data => {
