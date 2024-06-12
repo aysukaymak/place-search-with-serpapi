@@ -1,3 +1,7 @@
+- Environment Variables, to set up the necessary environment variables for this project:
+  - Run the command `cp .env.example .env` to create a copy of the `.env` file. 
+  - Open the `.env` file and fill in the required values.
+  
 - For project dependencies, run install-dependencies script
     ```
     node scripts\install-dependencies.js
