@@ -9,6 +9,7 @@ import { register, login } from './routes/auth.js';
 import { nearbySearch } from './routes/nearby-search.js';
 import { reverseGeocode } from './routes/reverse-geocode.js';
 import { events } from './routes/events.js';
+import { popularDestinations } from './routes/popular-destinations.js';
 
 dotenv.config();
 
@@ -93,6 +94,25 @@ const server = http.createServer(async (req, res) => {
                 const eventsData = await events(city);
                 res.writeHead(200, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ status: 'Events search completed', events: eventsData }));
+            } else {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ status: 'Bad Request: Missing parameters' }));
+            }
+        });
+    } else if (pathName === '/find-popular' && method === 'POST') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', async () => {
+            const { latitude, longitude } = JSON.parse(body);
+
+            if (latitude && longitude) {
+                // Use reverse geocoding to find the city name
+                const city = await reverseGeocode(latitude, longitude);
+                const destinationsData = await popularDestinations(city);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ status: 'Popular destinations search completed', destinations: destinationsData }));
             } else {
                 res.writeHead(400, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ status: 'Bad Request: Missing parameters' }));
