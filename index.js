@@ -14,6 +14,8 @@ import { popularDestinations } from './routes/popular-destinations.js';
 dotenv.config();
 
 const port = process.env.PORT || 3000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Helper function to serve static files
 const serveStaticFile = (res, filePath, contentType, responseCode = 200) => {
@@ -120,9 +122,10 @@ const server = http.createServer(async (req, res) => {
         });
     } else if (pathName === '/' && method === 'GET') {
         // Serve the index.html file
-        const __filename = fileURLToPath(import.meta.url);
-        const __dirname = path.dirname(__filename);
         serveStaticFile(res, path.join(__dirname, 'public', 'index.html'), 'text/html');
+    } else if (pathName === '/style.css' && method === 'GET') {
+        // Serve the style.css file
+        serveStaticFile(res, path.join(__dirname, 'public', 'style.css'), 'text/css');
     } else {
         res.writeHead(404, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ status: 'Not Found' }));
