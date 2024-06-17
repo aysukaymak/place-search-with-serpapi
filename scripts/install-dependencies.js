@@ -23,7 +23,7 @@ const runCommand = (command) => {
 const commands = [
   'npm install dotenv bcrypt jsonwebtoken multer',
   'npm install serpapi@latest',
-  'npm install mongodb mongoose'
+  'npm install mongodb@latest mongoose@latest'
 ];
 
 // Function to run all commands sequentially
