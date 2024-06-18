@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 
 import { register, login } from './routes/auth.js';
+import { addVisitedPlace, addFavPlace } from './routes/user-place-lists.js';
 import { nearbySearch } from './routes/nearby-search.js';
 import { reverseGeocode } from './routes/reverse-geocode.js';
 import { events } from './routes/events.js';
@@ -55,6 +56,30 @@ const server = http.createServer(async (req, res) => {
         req.on('end', async () => {
             const data = JSON.parse(body);
             await login(data, (response) => {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(response));
+            });
+        });
+    } else if (pathName === '/add-visited-place' && method === 'POST') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', async () => {
+            const data = JSON.parse(body);
+            await addVisitedPlace(data, (response) => {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(response));
+            });
+        });
+    } else if (pathName === '/add-fav-place' && method === 'POST') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', async () => {
+            const data = JSON.parse(body);
+            await addFavPlace(data, (response) => {
                 res.writeHead(200, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify(response));
             });
