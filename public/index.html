@@ -840,6 +840,7 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     const query = document.getElementById('searchQuery').value;
+                    console.log(position);
                     const { latitude, longitude } = position.coords;
 
                     fetch('/search-places', {
