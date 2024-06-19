@@ -70,10 +70,10 @@ async function login(req, res) {
     try {
         const user = await db.collection('users').findOne({ user_name });
         if (user && await bcrypt.compare(password, user.password)) {
-            const token = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: '1h' });
-            res.status(200).json({ status: 'Login successful', token });
+            const token = jwt.sign({ id: user._id }, jwtSecret);
+            res({ status: 'Login successful', token });
         } else {
-            res.status(401).json({ status: 'Invalid credentials' });
+            res({ status: 'Invalid credentials' });
         }
     } catch (error) {
         res({ status: 'Error', error: error.message });
