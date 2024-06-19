@@ -1,0 +1,21 @@
+
+/*------------------------------------------------- */
+/* =  article-post module
+/*------------------------------------------------- */
+
+.article-post {
+	padding: 4rem 2rem 4rem 0;
+	&__excerpt {
+		display: inline-block;
+		color: $primary-color;
+		font-size: 1.25rem;
+		font-weight: 300;
+		margin: 0 0 0.25rem;
+	}
+	&__title {
+		color: #fff;
+	}
+	&__description {
+		color: #cccccc;
+	}
+}

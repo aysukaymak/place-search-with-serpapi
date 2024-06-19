@@ -1,0 +1,59 @@
+
+/*------------------------------------------------- */
+/* =  blog post module
+/*------------------------------------------------- */
+
+.blog-post {
+	margin-bottom: 2rem;
+	&__image {
+		width: 100%;
+		height: auto;
+		@include border-radius(3px);
+		margin-bottom: 0.75rem;
+	}
+	&__list {
+		@extend .reset-elem;
+		margin-bottom: 0.75rem;
+	}
+	&__list-item {
+		display: inline-block;
+		margin-right: 0.25rem;
+		color: $text-color;
+		font-size: 0.875rem;
+		font-weight: 300;
+		i {
+			color: #ccc;
+		}
+		a {
+			color: $text-color;
+		}
+		a:hover {
+			color: $primary-color;
+		}
+	}
+	&__title {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+		a {
+			color: $title-color;
+		}
+		a:hover {
+			text-decoration: underline !important;
+		}
+	}
+	&__description {
+		color: #666666;
+	}
+	&__tags {
+		i {
+			color: #ccc;
+		}
+		a {
+			color: $text-color;
+		}
+		a:hover {
+			color: $title-color;
+			text-decoration: underline !important;
+		}
+	}
+}

@@ -1,0 +1,33 @@
+
+/*------------------------------------------------- */
+/* =  Section header module
+/*------------------------------------------------- */
+
+.section-header {
+    margin-bottom: 2.5rem;
+    position: relative;
+    &__title {
+        position: relative;
+        padding-bottom: 1rem;
+    }
+    &__title.white-style {
+        color: #fff;
+    }
+    &__title:after {
+        content: '';
+        position: absolute;
+        bottom: 0.0625rem;
+        left: 0;
+        width: 1.9rem;
+        height: 0.0625rem;
+        background: $primary-color;
+    }
+    &__description {
+        max-width: 33.75rem;
+        margin: 0;
+        font-size: 1.0625rem;
+    }
+    &__description.white-style {
+        color: #fff;
+    }
+}

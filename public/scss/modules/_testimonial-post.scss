@@ -1,0 +1,58 @@
+
+/*------------------------------------------------- */
+/* =  testimonial post module
+/*------------------------------------------------- */
+
+.testimonial-post {
+	text-align: center;
+	&__content {
+		display: flex;
+		flex-direction: column;
+		height: 15rem;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid #e2e7ea;
+		@include border-radius(0.25rem);
+		@include box-shadow(0 0.5rem 1rem rgba(0,0,0,0.03));
+		margin-bottom: -2.1875rem;
+		background: #fff;
+		padding: 0 1rem;
+	}
+	&__content-bottom {
+		margin-bottom: 0;
+		height: 15.5rem;
+	}
+	&__quote {
+		color: $primary-color;
+		font-size: 3.75rem;
+		display: inline-block;
+		font-family: $font-alternative2;
+		margin-bottom: -1rem;
+		margin-top: -3.5rem;
+	}
+	&__title {
+		font-size: 1.0625rem;
+		font-weight: 300;
+		margin-bottom: 0rem;
+		letter-spacing: -0.0625rem;
+	}
+	&__title-white {
+		color: #fff;
+	}
+	&__description {
+		color: #666666;
+		font-size: 1.0625rem;
+		font-weight: 200;
+		font-style: italic;
+		margin-bottom: 0;
+	}
+	&__image {
+		width: 4.375rem;
+		height: 4.375rem;
+		margin-bottom: 1rem;
+		@include border-radius(50%);
+	}
+	&__image-top {
+		margin-bottom: -2.1875rem;
+	}
+}

@@ -1,0 +1,76 @@
+
+/*------------------------------------------------- */
+/* =  Place gal module
+/*------------------------------------------------- */
+
+.place-gal {
+	overflow: hidden;
+	position: relative;
+	@include transition(0.2s);
+	@include border-radius(5px);
+	&__image {
+		width: 100%;
+		height: auto;
+		@include border-radius(5px);
+		@include transition(0.3s);
+	}
+	&:hover & {
+		&__image {
+			@include transform(1.1);
+		}
+	}
+	&__content {
+		position: absolute;
+		bottom: 3rem;
+		left: 0;
+		width: 100%;
+		padding: 0 1.875rem;
+	}
+	&__title {
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		margin-bottom: 0.5rem;
+		a {
+			color: #fff;
+			img {
+				display: inline-block;
+				float: left;
+				margin-right: 0.5rem;
+				width: 1.25rem;
+				height: 1.25rem;
+				margin-top: 0.125rem;
+				@include border-radius(50%);
+			}
+		}
+		a:hover {
+			color: $primary-color;
+		}
+	}
+	&__list {
+		@extend .reset-elem;
+		margin-bottom: 1rem;
+	}
+	&__list-item {
+		display: inline-block;
+		margin-right: 0.25rem;
+		a {
+			color: #fff;
+			font-size: 1.0625rem;
+			font-weight: 300;
+		}
+		a:hover {
+			text-decoration: underline !important;
+		}
+	}
+	&__list-item:before {
+		content: '';
+		float: left;
+		display: inline-block;
+		width: 0.25rem;
+		height: 0.25rem;
+		background: #fff;
+		@include border-radius(50%);
+		margin-right: 0.35rem;
+		margin-top: 0.65rem;
+	}
+}

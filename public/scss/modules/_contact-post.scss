@@ -1,0 +1,30 @@
+
+/*------------------------------------------------- */
+/* =  contact post module
+/*------------------------------------------------- */
+
+.contact-post {
+	display: flex;
+	margin-top: 2.625rem;
+	i {
+		color: $primary-color;
+		font-size: 1.125rem;
+		margin-right: 1.875rem;
+	}
+	&__title {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+	}
+	&__description {
+		margin-bottom: 0;
+		font-size: 1rem;
+		color: #666666;
+	}
+}
+
+@media (max-width: 767px) {
+	.contact-post {
+		margin-top: 0;
+		margin-bottom: 2.625rem;
+	}
+}

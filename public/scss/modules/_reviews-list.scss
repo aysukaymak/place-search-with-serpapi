@@ -1,0 +1,148 @@
+
+/*------------------------------------------------- */
+/* =  reviews-list module
+/*------------------------------------------------- */
+
+.reviews-list {
+	@extend .reset-elem;
+	padding-top: 0.625rem;
+	&__item {
+		list-style: none;
+	}
+	&__item-box {
+		margin-bottom: 1.875rem;
+		padding-bottom: 1.875rem;
+		border-bottom: 1px solid #eeeeee;
+	}
+	&__item-image {
+		float: left;
+		width: 3.125rem;
+		height: 3.125rem;
+		margin-right: 1.25rem;
+		@include border-radius(3px);
+	}
+	&__item-content {
+		overflow: hidden;
+	}
+	&__item-title {
+		color: $title-color;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25rem;
+		margin: 0;
+	}
+	&__item-location,
+	&__item-date {
+		display: inline-block;
+		color: #666;
+		font-size: 0.9375rem;
+		font-weight: 300;
+		line-height: 1.25rem;
+		margin: 0 0 1rem;
+	}
+	&__item-date {
+		float: right;
+		color: $text-color;
+		font-weight: 200;
+	}
+	&__item-rating {
+		display: inline-block;
+		padding: 0.3rem 0.5rem;
+		background: rgba(122,201,101,0.9);
+		@include border-radius(3px);
+		color: #fff;
+		font-size: 1rem;
+		font-weight: 400;
+		margin-left: 0.25rem;
+	}
+	&__item-rating.average-rat {
+		background: #bdbc60;
+	}
+	&__item-rating.solid-rat {
+		background: #cc9334;
+	}
+	&__item-rating.low-rat {
+		background: $primary-color;
+	}
+	&__item-description {
+		color: #666666;
+		margin-bottom: 1.25rem;
+	}
+	&__item-reply {
+		float: right;
+		padding: 0.25rem 0.5rem;
+		color: $text-color;
+		font-size: 0.875rem;
+		font-weight: 200;
+		border: 1px solid #ebebeb;
+		@include border-radius(1.25rem);
+		i {
+			font-size: 1rem;
+			float: left;
+			margin-right: 0.25rem;
+			margin-top: 0.125rem;
+		}
+	}
+	&__item-reply:hover {
+		color: $primary-color;
+		border-color: $primary-color;
+	}
+	&__item-helpful {
+		padding: 0.25rem 0.5rem;
+		padding-right: 2.5rem;
+		color: $text-color;
+		font-size: 0.875rem;
+		font-weight: 200;
+		border: 1px solid #ebebeb;
+		position: relative;
+		@include border-radius(0.125rem);
+		i {
+			font-size: 1rem;
+			float: left;
+			margin-right: 0.25rem;
+			margin-top: 0.125rem;
+			@include transition(0.2s);
+		}
+		span {
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: 0.25rem 0;
+			text-align: center;
+			color: #666666;
+			font-size: 0.875rem;
+			display: inline-block;
+			width: 2rem;
+			border-left: 1px solid #ebebeb;
+			@include transition(0.2s);
+		}
+	}
+	&__item-helpful.active,
+	&__item-helpful:hover {
+		color: $title-color;
+		border-color: #3399ff;
+		i {
+			color: #3399ff;
+		}
+		span {
+			border-left-color: #3399ff;
+			background: #3399ff;
+			color: #fff;
+		}
+	}
+	@media (max-width: 767px) {
+		&__item-date {
+			float: none;
+			display: block;
+		}
+	}
+}
+
+.reviews-list.with-depth {
+	padding-left: 4.375rem;
+}
+@media (max-width: 767px) {
+	.reviews-list.with-depth {
+		padding-left: 0;
+	}
+}

@@ -1,0 +1,285 @@
+
+/*------------------------------------------------- */
+/* =  single post module
+/*------------------------------------------------- */
+
+.single-post {
+	&__image {
+		width: 100%;
+		height: auto;
+		margin-bottom: 1.5rem;
+	}
+	&__list {
+		@extend .reset-elem;
+	}
+	&__list-item {
+		display: inline-block;
+		margin-right: 0.25rem;
+		color: $text-color;
+		font-size: 0.875rem;
+		font-weight: 300;
+		i {
+			color: #ccc;
+		}
+		a {
+			color: $text-color;
+		}
+		a:hover {
+			color: $primary-color;
+		}
+	}
+	&__description {
+		margin-bottom: 1.25rem;
+		color: #666;
+	}
+	&__quote {
+		padding: 1rem 0;
+		color: $title-color;
+		font-size: 1.25rem;
+		font-weight: 600;
+		font-style: italic;
+		padding-left: 70px;
+		position: relative;
+	}
+	&__quote:before {
+		content: '"';
+		color: $primary-color;
+		font-size: 3.75rem;
+		display: inline-block;
+		font-family: $font-alternative2;
+		position: absolute;
+		font-style: normal;
+		top: 1.25rem;
+		left: 1rem;
+	}
+	&__tags {
+		margin: 1rem 0;
+		i {
+			color: #ccc;
+		}
+		a {
+			color: $text-color;
+		}
+		a:hover {
+			color: $title-color;
+			text-decoration: underline !important;
+		}
+	}
+	&__share-list {
+		margin: 1rem 0 2rem;
+		text-align: right;
+		color: $text-color;
+		i {
+			color: #ccc;
+		}
+		a {
+			font-size: 0.9375rem;
+			margin-left: 0.5rem;
+		}
+		a.twitter i {
+			color: #5ab4d6;
+		}
+		a.facebook i {
+			color: #5252d4;
+		}
+		a.pinterest i {
+			color: #d74040;
+		}
+		a:hover {
+			opacity: 0.7;
+		}
+	}
+	&__line-title {
+		color: $title-color;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		padding-bottom: 1rem;
+		margin: 0 0 1.25rem;
+		line-height: 1rem;
+		border-bottom: 1px solid #eeeeee;
+
+	}
+	@media (max-width: 767px) {
+		&__share-list {
+			text-align: left;
+		}
+	}
+}
+
+.author-post-box {
+	margin-bottom: 2.5rem;
+	padding-bottom: 1.25rem;
+	border-bottom: 1px solid #eeeeee;
+	&__content {
+		display: flex;
+	}
+	&__image {
+		margin-right: 1.25rem;
+		img {
+			width: 50px;
+			height: 50px;
+			@include border-radius(3px);
+		}
+	}
+	&__title {
+		color: $title-color;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25rem;
+		padding-top: 0.375rem;
+		margin: 0;
+		a {
+			color: $title-color;
+		}
+		a:hover {
+			color: $primary-color;
+		}
+		span {
+			display: block;
+			color: #666666;
+			font-weight: 300;
+		}
+	}
+	&__btn {
+		float: right;
+		margin-top: 0.375rem;
+	}
+}
+
+.other-posts {
+	margin-bottom: 2.5rem;
+	padding-bottom: 2.5rem;
+	border-bottom: 1px solid #eeeeee;
+	display: flex;
+	position: relative;
+	&__prev,
+	&__next {
+		display: flex;
+		width: 50%;
+		align-items: center;
+		padding: 0.5rem 0;
+		i {
+			font-size: 20px;
+			color: #999999;
+			@include transition(0.2s);
+		}
+	}
+	&__prev:hover,
+	&__next:hover {
+		i {
+			color: $primary-color;
+		}
+	}
+	&__next {
+		text-align: right;
+		flex-direction: row-reverse;
+	}
+	&__prev {
+		i {
+			margin-right: 1rem;
+		}
+	}
+	&__next {
+		i {
+			margin-left: 1rem;
+		}
+	}
+	&__desc {
+		@extend .paragraph;
+		margin-bottom: 0;
+	}
+	&__title {
+		margin-bottom: 0;
+	}
+}
+.other-posts:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 2.5rem;
+	left: 50%;
+	width: 1px;
+	background: #eeeeee;
+}
+
+@media (max-width: 576px) {
+	.other-posts {
+		display: block;
+		&__prev,
+		&__next {
+			display: flex;
+			width: 100%;
+			text-align: left;
+		}
+	}
+	.other-posts:after {
+		display: none;
+	}
+}
+
+.comments {
+	&__list {
+		@extend .reset-elem;
+	}
+	&__list-item {
+		list-style: none;
+		margin-bottom: 1.875rem;
+		padding-top: 1.875rem;
+		border-top: 1px solid #eeeeee;
+	}
+	&__list-item:first-child {
+		padding-top: 0;
+		border-top: none;
+	}
+	&__list-item-image {
+		float: left;
+		width: 3.125rem;
+		height: 3.125rem;
+		margin-right: 1.25rem;
+		@include border-radius(3px);
+	}
+	&__list-item-content {
+		overflow: hidden;
+	}
+	&__list-item-title {
+		color: $title-color;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25rem;
+		margin: 0;
+	}
+	&__list-item-location,
+	&__list-item-date {
+		display: inline-block;
+		color: #666;
+		font-size: 0.9375rem;
+		font-weight: 300;
+		line-height: 1.25rem;
+		margin: 0 0 1rem;
+	}
+	&__list-item-date {
+		float: right;
+		color: $text-color;
+		font-weight: 200;
+	}
+	&__list-item-reply {
+		float: right;
+		padding: 0.25rem 0.5rem;
+		color: $text-color;
+		font-size: 0.875rem;
+		font-weight: 200;
+		border: 1px solid #ebebeb;
+		@include border-radius(1.25rem);
+		i {
+			font-size: 1rem;
+			float: left;
+			margin-right: 0.25rem;
+			margin-top: 0.125rem;
+		}
+	}
+	&__list-item-reply:hover {
+		color: $primary-color;
+	}
+}
+
+

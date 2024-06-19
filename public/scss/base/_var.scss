@@ -1,0 +1,213 @@
+/*-------------------------------------------------
+ =  Table of Css
+
+ 1.Import google fonts & basic style of template
+ 2.Isotope filtering
+ 3.General
+ 4.OWL carousel buttons styling
+ 5.nav tabs styling
+ 6.top experience block
+ 7.services section block
+ 8.trending-places block
+ 9.discover-events block
+ 10.banner block
+ 11.how it work block
+ 12.statistic block
+ 13.testimonial block
+ 14.tabs block
+ 15.news block
+ 16.about block
+ 17.team block
+ 18.blog page
+ 19.contact-page block & map block
+ 20.sign block
+ 21.category list block
+ 22.Google Maps
+ 23.Header
+ 24.Section header module
+ 25.Discover module
+ 26.Place gal module
+ 27.Services post module
+ 28.place post module
+ 29.event post module
+ 30.how work post module
+ 31.statistic post module
+ 32.testimonial post module
+ 33.news post module
+ 34.article post module
+ 35.team post module
+ 36.category post module
+ 37.explore module
+ 38.listing detail module
+ 39.reviews-list module
+ 40.author wrapper module
+ 41.user page module
+ 42.review item module
+ 43.cities post module
+ 44.add listing module
+ 45.page title module
+ 46.blog post module
+ 47.sidebar module
+ 48.single post module
+ 49.contact form module
+ 50.contact form module (in review added elems)
+ 51.contact post module
+ 52.sign form module
+ 53.Footer
+-------------------------------------------------*/
+
+/* import google fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Nunito:200,200i,300,300i,400,400i,600,600i,700,800,900|Permanent+Marker');
+
+//the default font in our template
+$font-default: 'Nunito', sans-serif;
+
+//the alternative font in our template
+$font-alternative: 'Montserrat', sans-serif;
+
+//the alternative font 2 in our template
+$font-alternative2: 'Permanent Marker', cursive;
+
+//default color skin
+$primary-color: #3685cf;
+
+//default color skin with opacity
+$primary-color-trans: rgba(54, 133, 207, 0.9);
+
+//text color 1 (some titles)
+$title-color: #363636;
+
+//text color 1 (some titles)
+$text-color: #999999;
+
+//reset element paddings and margins
+
+.reset-elem {
+    margin: 0;
+    padding: 0;
+}
+
+//default style for paragraphs in this template
+.paragraph {
+    font-size: 0.9375rem;
+    color: $text-color;
+    font-weight: 300;
+    line-height: 1.625rem;
+    margin: 0 0 0.625rem;
+}
+
+//default style for hading1 in this template
+.heading1 {
+    color: $title-color;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 3rem;
+    margin: 0 0 0.9375rem;
+}
+
+//default style for hading2 in this template
+.heading2 {
+    color: $title-color;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.9375rem;
+    line-height: 1.5rem;
+}
+
+//default style for hading2 in this template
+.heading3 {
+    color: $title-color;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    margin: 0 0 0.9375rem;
+    line-height: 1.8rem;
+}
+
+//variable for radius corners
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//variable for radius corners
+@mixin border-bottom-left-radius($radius) {
+    -webkit-border-bottom-left-radius: $radius;
+    -moz-border-bottom-left-radius: $radius;
+    -o-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+
+//variable for radius corners
+@mixin border-bottom-right-radius($radius) {
+    -webkit-border-bottom-right-radius: $radius;
+    -moz-border-bottom-right-radius: $radius;
+    -o-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+}
+
+//variable for radius corners
+@mixin border-top-left-radius($radius) {
+    -webkit-border-top-left-radius: $radius;
+    -moz-border-top-left-radius: $radius;
+    -o-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+}
+
+//variable for radius corners
+@mixin border-top-right-radius($radius) {
+    -webkit-border-top-right-radius: $radius;
+    -moz-border-top-right-radius: $radius;
+    -o-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+//variable for transitions
+@mixin transition($speed) {
+    transition: all $speed ease-in-out;
+    -moz-transition: all $speed ease-in-out;
+    -webkit-transition: all $speed ease-in-out;
+    -o-transition: all $speed ease-in-out;
+}
+
+//variable for tranform grow elem scale
+@mixin transform($scale) {
+    transform: scale($scale);
+    -webkit-transform: scale($scale);
+    -moz-transform: scale($scale);
+    -o-transform: scale($scale);
+}
+
+//box shadow  variable
+@mixin box-shadow($val) {
+    box-shadow: $val;
+    -webkit-box-shadow: $val;
+    -moz-box-shadow: $val;
+    -o-box-shadow: $val;
+}
+
+//animate transform rotate variable
+@mixin rotate($rotate) {
+    -webkit-transform: rotate($rotate);
+    -moz-transform: rotate($rotate);
+    -ms-transform: rotate($rotate);
+    -o-transform: rotate($rotate);
+    transform: rotate($rotate);
+}
+
+//background size cover
+.back-cover {
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+}
+
+//default style for anchors in this template
+.anchor {
+    display: inline-block;
+    text-decoration: none !important;
+
+    @include transition(0.2s);
+}

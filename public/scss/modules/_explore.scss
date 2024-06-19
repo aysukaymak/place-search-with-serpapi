@@ -1,0 +1,302 @@
+
+/*------------------------------------------------- */
+/* =  explore module
+/*------------------------------------------------- */
+
+.explore {
+	&__box {
+		padding: 1.25rem 0 4.375rem;
+		position: relative;
+		.item {
+			width: 50%;
+			padding: 0 0.9375rem;
+			margin-bottom: 2rem;
+		}
+	}
+	&__wrap.iso-call {
+		margin: 0 -0.9375rem;
+	}
+	&__wrap.iso-call.list-version {
+		margin: 0;
+		.item {
+			width: 100%;
+			padding: 0;
+		}
+	}
+	&__filter-title {
+		margin-bottom: 1.25rem;
+		line-height: 2.5rem;
+		span {
+			color: #666666;
+		}
+		a {
+			float: right;
+			width: 2.5rem;
+			height: 2.5rem;
+			border: 1px solid transparent;
+			line-height: 2.5rem;
+			color: #ccc;
+			font-size: 1.0625rem;
+			@include border-radius(2px);
+			text-align: center;
+			margin-left: 0.25rem;
+		}
+		a.active {
+			color: $primary-color;
+			border-color: $primary-color;
+		}
+	}
+	&__box:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		right: -30px;
+		background: #f5f5f5;
+	}
+	&__box-side:after {
+		display: none;
+	}
+	&__filter {
+		padding-top: 1.25rem;
+		padding-left: 1.25rem;
+	}
+	&__filter-side {
+		padding-left: 0rem;
+	}
+	&__form {
+		margin: 0;
+		padding: 0;
+	}
+	&__form-title {
+		line-height: 2.375rem;
+		margin-bottom: 1.25rem;
+	}
+	&__form-input {
+		display: block;
+		width: 100%;
+		padding: 0.625rem 1.25rem;
+		color: #ccc;
+		font-size: 0.9375rem;
+		font-weight: 300;
+		background: #ffffff;
+		outline: none;
+		border: 1px solid #dddddd;
+		margin: 0 0 1.25rem;
+		@include border-radius(2px);
+		@include box-shadow(0 3px 8px rgba(0,0,0,0.02));
+		@include transition(0.2s);
+	}
+	&__form-input:hover {
+		border-color: $primary-color;
+	}
+	.select2-container--default {
+		margin-bottom: 1.25rem;
+	}
+	.select2-container--default .select2-selection--single {
+		border: 1px solid #dddddd;
+		@include border-radius(2px);
+	}
+	.select2-container--default .select2-selection--single .select2-selection__rendered {
+		padding: 0.5rem 1.25rem;
+		color: #ccc;
+		font-weight: 300;
+	}
+	.select2-container--default .select2-selection--single .select2-selection__arrow {
+		top: 0.75rem;
+	}
+	&__form-desc {
+		font-size: 0.9375rem;
+		margin-bottom: 1.25rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid #eeeeee;
+		a {
+			color: $text-color;
+			float: right;
+			font-weight: 300;
+			i {
+				font-size: 13px;
+				margin-left: 0.25rem;
+			}
+		}
+		a:hover {
+			color: $primary-color;
+		}
+	}
+	&__form-advanced {
+		display: none;
+		span {
+			display: inline-block;
+			@extend .paragraph;
+		}
+	}
+	&__form-price-list {
+		@extend .reset-elem;
+		display: inline-block;
+		margin-bottom: 1.25rem;
+		li {
+			display: inline-block;
+			margin-left: 0.25rem;
+			a {
+				color: #999;
+				font-size: 0.8125rem;
+				padding: 0.625rem;
+				@include box-shadow(0 2px 4px #f0f0f0);
+				@include border-radius(2px);
+			}
+			a.active,
+			a:hover {
+				background: $primary-color;
+				color: #fff;
+			}
+		}
+	}
+	&__form-checkbox-list {
+		@extend .reset-elem;
+		overflow: hidden;
+		margin-bottom: 1.25rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid #eeeeee;
+		li {
+			float: left;
+			width: 50%;
+			position: relative;
+			list-style: none;
+			margin-bottom: 0.25rem;
+		}
+	}
+	&__form-checkbox-list-side {
+		padding-bottom: 1rem;
+		border-bottom: 1px solid #eeeeee;
+	}
+	&__input-checkbox {
+		width: 1.25rem;
+		height: 1.25rem;
+		margin-right: 0.25rem;
+		opacity: 0;
+		position: relative;
+		z-index: 2;
+	}
+	&__checkbox-style {
+		display: inline-block;
+		position: absolute;
+		top: 3px;
+		left: 0;
+		width: 1.25rem;
+		height: 1.25rem;
+		border: 1px solid #dddddd;
+		@include border-radius(2px);
+		margin-bottom: 0 !important;
+	}
+	&__checkbox-style:after {
+		content: '';
+		position: absolute;
+		top: 0.3125rem;
+		left: 0.1875rem;
+		width: 0.75rem;
+		height: 0.4rem;
+		border-left: 1px solid $primary-color;
+		border-bottom: 1px solid $primary-color;
+		@include rotate(-45deg);
+		opacity: 0;
+	}
+	&__input-checkbox:checked + &__checkbox-style:after {
+		opacity: 1;
+	}
+	&__checkbox-text {
+		color: #999999;
+		font-size: 0.9375rem;
+		font-weight: 300;
+		margin-bottom: 0 !important;
+	}
+	&__advertise {
+		text-align: center;
+		margin-bottom: 1.5rem;
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	&__advertise-title {
+		display: block;
+		@extend .paragraph;
+		font-size: 13px;
+	}
+	&__side-content {
+		width: 40%;
+		padding: 5.5rem 3.125rem;
+	}
+	&__map-side {
+		width: 60%;
+		position: fixed;
+		top: 60px;
+		bottom: 0;
+		right: 0;
+		#map {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	@media (max-width: 1580px) {	
+		&__side-content,
+		&__map-side {
+			width: 50%;
+		}
+	}
+
+	@media (max-width: 1400px) {	
+		&__side-content {
+			width: 60%;
+		}
+		&__map-side {
+			width: 40%;
+		}
+	}
+	@media (max-width: 1199px) {	
+		&__side-content {
+			width: 70%;
+		}
+		&__map-side {
+			width: 30%;
+		}
+	}
+	@media (max-width: 991px) {
+		&__side-content {
+			width: 100%;
+		}
+		&__map-side {
+			width: 100%;
+			position: relative;
+			height: 300px;
+		}
+		&__box:after {
+			display: none;
+		}
+		&__filter {
+			padding-left: 0;
+		}
+	}
+	@media (max-width: 767px) {
+		&__side-content {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+		&__box {
+			.item {
+				width: 100%;
+			}
+		}
+	}
+	@media (max-width: 576px) {
+		&__side-content {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+		&__box-side {
+			.item {
+				width: 100% !important;
+			}
+		}
+	}
+}

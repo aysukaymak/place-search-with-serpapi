@@ -1,0 +1,52 @@
+
+/*------------------------------------------------- */
+/* =  cities post module
+/*------------------------------------------------- */
+
+.cities-post {
+	margin-bottom: 1.25rem;
+	&__image {
+		width: 100%;
+		height: auto;
+		@include border-radius(3px);
+		margin-bottom: 1rem;
+	}
+	&__title {
+		margin-bottom: 0;
+		a {
+			color: $title-color;
+		}
+		a:hover {
+			color: $primary-color;
+		}
+	}
+	&__list {
+		@extend .reset-elem;
+		margin-bottom: 0.5rem;
+		li {
+			display: inline-block;
+			color: $text-color;
+			font-size: 0.9375rem;
+			font-weight: 300;
+			margin-right: 0.25rem;
+
+		}
+		li:before {
+			content: '';
+			display: inline-block;
+			width: 2px;
+			height: 3px;
+			@include border-radius(50%);
+			background: $text-color;
+			margin-right: 0.5rem;
+			float: left;
+			margin-top: 0.625rem;
+		}
+		li:first-child:before {
+			display: none;
+		}
+	}
+	&__link {
+		font-size: 0.9375rem;
+	}
+}

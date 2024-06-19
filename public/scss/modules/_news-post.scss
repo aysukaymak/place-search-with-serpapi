@@ -1,0 +1,72 @@
+
+/*------------------------------------------------- */
+/* =  news post module
+/*------------------------------------------------- */
+
+.news-post {
+	margin-bottom: 1.875rem;
+	@include transition(0.2s);
+	&__gal {
+		position: relative;
+		img {
+			width: 100%;
+			height: auto;
+			@include border-top-left-radius(0.25rem);
+			@include border-top-right-radius(0.25rem);
+		}
+	}
+	&__date {
+		position: absolute;
+		display: inline-block;
+		position: absolute;
+		bottom: 1.25rem;
+		left: 1.25rem;
+		padding: 0.3rem 0.5rem;
+		background: rgba(51,153,255,0.9);
+		@include border-radius(0.1875rem);
+		color: #fff;
+		font-size: 0.9375rem;
+		font-weight: 300;
+	}
+	&__content {
+		padding: 1rem 1.25rem 1.5rem;
+		border: 1px solid #ebebeb;
+		border-top: none;
+		@include border-bottom-left-radius(0.25rem);
+		@include border-bottom-right-radius(0.25rem);
+	}
+	&__title {
+		margin-bottom: 0.125rem;
+		a {
+			color: $title-color;
+		}
+		a:hover {
+			color: $primary-color;
+		}
+	}
+	&__tags {
+		@extend .reset-elem;
+		margin-bottom: 0.625rem;
+		li {
+			display: inline-block;
+			a {
+				color: #999;
+				font-size: 0.9375rem;
+				font-family: $font-default;
+				font-weight: 300;
+			}
+			a:hover {
+				color: $primary-color;
+			}
+		}
+	}
+	@media (max-width: 1580px) {	
+		&__title {
+			font-size: 1.0625rem;
+		}
+	}
+}
+
+.news-post:hover {
+	@include box-shadow(0 8px 25px #ededed);
+}

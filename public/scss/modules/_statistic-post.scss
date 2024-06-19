@@ -1,0 +1,36 @@
+
+/*------------------------------------------------- */
+/* =  statistic post module
+/*------------------------------------------------- */
+
+.statistic-post {
+	margin-bottom: 1.875rem;
+	display: flex;
+	&__icon {
+		color: $title-color;
+		font-size: 2.5rem;
+		display: inline-block;
+		margin-right: 1rem;
+	}
+	&__icon-primary {
+		color: $primary-color;
+	}
+	&__title {
+		font-weight: 600;
+		margin-bottom: 0rem;
+	}
+	&__title-white {
+		color: #fff;
+	}
+	&__description {
+		font-size: 1.0625rem;
+		margin-bottom: 0;
+	}
+}
+
+@media (max-width: 576px) {
+	.statistic-post {
+		max-width: 16.25rem;
+		margin: 0 auto 1.875rem;
+	}
+}

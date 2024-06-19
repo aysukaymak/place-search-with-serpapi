@@ -1,0 +1,17 @@
+
+/*------------------------------------------------- */
+/* =  page title module
+/*------------------------------------------------- */
+
+.page-title {
+	margin-top: 3.875rem;
+	padding: 2rem 0;
+	border-bottom: 1px solid #ebebeb;
+	&__title {
+		margin-bottom: 0;
+	}
+	&__description {
+		color: #ccc;
+		font-weight: 300;
+	}
+}

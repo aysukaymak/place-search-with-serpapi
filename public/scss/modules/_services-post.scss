@@ -1,0 +1,128 @@
+
+/*------------------------------------------------- */
+/* =  services post module
+/*------------------------------------------------- */
+
+.services-post {
+	display: block;
+	background: #fff;
+	border: 1px solid #e8edf0;
+	padding: 0.625rem;
+	margin-bottom: 1.875rem;
+	@include border-radius(0.1875rem);
+	@include transition(0.2s);
+	@include box-shadow(0 0.3125rem 0.625rem #f6f6f6);
+	&__content {
+		padding: 1.875rem 0.625rem 0rem;
+		border: 1px solid transparent;
+		text-align: center;
+		@include border-radius(0.0625rem);
+		@include transition(0.2s);
+		i {
+			display: inline-block;
+			color: $primary-color;
+			font-size: 2.875rem;
+			margin-bottom: 1.25rem;
+			@include transition(0.2s);
+		}
+	}
+	&__title {
+		color: $primary-color;
+		margin-bottom: 0;
+		@include transition(0.2s);
+	}
+	&__location {
+		opacity: 0.8;
+		color: #fff;
+		margin-bottom: 0;
+		font-weight: 200;
+		@include transition(0.2s);
+	}
+	&:hover & {
+		&__content {
+			border-color: rgba(255,255,255,0.3);
+			i {
+				color: #fff;
+				margin-bottom: 0.625rem;
+			}
+		}
+		&__title {
+			color: #fff;
+		}
+		&__location {
+			margin-bottom: 0.625rem;
+		}
+	}
+}
+
+.services-post:hover {
+	background: $primary-color;
+	border-color: transparent;
+	@include box-shadow(0 0.75rem 1.5rem #e8e8e8);
+}
+
+.services-post2 {
+	display: block;
+	text-align: center;
+	background: #fff;
+	border: 1px solid transparent;
+	padding: 2.5rem 0.625rem 2.25rem;
+	margin-bottom: 1.25rem;
+	@include border-radius(0.1875rem);
+	@include transition(0.2s);
+	i {
+		display: inline-block;
+		color: $primary-color;
+		font-size: 2.875rem;
+		margin-bottom: 1.25rem;
+		@include transition(0.2s);
+	}
+	&__title {
+		margin-bottom: 0;
+		@include transition(0.2s);
+	}
+	&__location {
+		margin-bottom: 0;
+		font-weight: 200;
+		@include transition(0.2s);
+	}
+}
+
+.services-post2:hover {
+	border: 1px solid $primary-color;
+}
+
+.services-post3 {
+	display: block;
+	text-align: center;
+	border: 1px solid transparent;
+	padding: 1rem 0.5rem;
+	margin-bottom: 1rem;
+	@include border-radius(0.1875rem);
+	@include transition(0.2s);
+	i {
+		display: inline-block;
+		color: #fff;
+		font-size: 2.875rem;
+		margin-bottom: 1rem;
+		@include transition(0.2s);
+	}
+	&__title {
+		color: #fff;
+		font-size: 0.9175rem;
+		margin-bottom: 0;
+		@include transition(0.2s);
+	}
+	&:hover & {
+		&__title {
+			color: $primary-color;
+		}
+	}
+}
+
+.services-post3:hover {
+	border: 1px solid $primary-color;
+	i {
+		color: $primary-color;
+	}
+}

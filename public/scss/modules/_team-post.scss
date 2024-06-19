@@ -1,0 +1,84 @@
+
+/*------------------------------------------------- */
+/* =  team post module
+/*------------------------------------------------- */
+
+.team-post {
+	margin-bottom: 2rem;
+	&__gal {
+		position: relative;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__gal-hover {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		right: 20px;
+		bottom: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		background: rgba(255,255,255,0.4);
+		opacity: 0;
+		@include transition(0.2s);
+	}
+	&__social {
+		@extend .reset-elem;
+		li {
+			display: inline-block;
+			margin: 0 0.125rem 0;
+			a {
+				display: inline-block;
+				color: #fff;
+				width: 2rem;
+				height: 2rem;
+				font-size: 0.75rem;
+				line-height: 1.75rem;
+				border: 2px solid transparent;
+				@include border-radius(50%);
+			}
+			a.facebook {
+				background: #6666cc;
+			}
+			a.twitter {
+				background: #3399cc;
+			}
+			a.instagram {
+				background: #cc66cc;
+			}
+			a.linkedin {
+				background: #3399cc;
+			}
+			a:hover {
+				background: transparent !important;
+				border-color: #fff;
+			}
+		}
+	}
+	&__content {
+		padding-top: 1.25rem;
+	}
+	&__name {
+		margin-bottom: 0;
+	}
+	&__role {
+		display: inline-block;
+		color: #666666;
+		font-size: 0.9375rem;
+		font-weight: 300;
+		margin: 0 0 0.5rem;
+	}
+	&:hover & {
+		&__gal-hover {
+			opacity: 1;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+		}
+	}
+}

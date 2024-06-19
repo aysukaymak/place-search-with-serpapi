@@ -1,0 +1,152 @@
+
+/*------------------------------------------------- */
+/* =  contact form module
+/*------------------------------------------------- */
+
+.contact-form {
+	padding: 1.875rem;
+	background: #fafafa;
+	margin-bottom: 1.875rem;
+	border: 1px solid #ebebeb;
+	@include border-radius(2px);
+	&__input-text,
+	&__textarea {
+		display: block;
+		width: 100%;
+		padding: 0.625rem 1.25rem;
+		color: #999999;
+		font-size: 0.9375rem;
+		font-weight: 300;
+		background: #ffffff;
+		outline: none;
+		border: 1px solid #dddddd;
+		margin: 0 0 1.875rem;
+		@include border-radius(2px);
+		@include box-shadow(0 3px 8px rgba(0,0,0,0.02));
+		@include transition(0.2s);
+	}
+	&__input-text:hover,
+	&__textarea:hover {
+		border-color: $primary-color;
+	}
+	&__textarea {
+		height: 6.25rem;
+	}
+	&__submit {
+		padding: 0.625rem 2rem;
+		color: $primary-color;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		background: transparent;
+		outline: none;
+		border: 2px solid #d7d7d7;
+		margin: 0;
+		cursor: pointer;
+		@include border-radius(1.75rem);
+		@include box-shadow(0 3px 8px rgba(0,0,0,0.02));
+		@include transition(0.2s);
+	}
+	&__submit:hover {
+		color: #ffffff;
+		background: $primary-color;
+		border-color: $primary-color;
+		@include box-shadow(0 5px 14px rgba(0,0,0,0.06));
+	}
+}
+
+/*------------------------------------------------- */
+/* =  contact form module (in review added elems)
+/*------------------------------------------------- */
+
+.contact-form {
+	&__rate {
+		margin-bottom: 0;
+	}
+	&__rate-bx {
+		display: inline-block;
+		margin-right: 0.5rem;
+		font-size: 18px;
+		color: #cccccc;
+		i {
+			margin-right: -0.125rem;
+		}
+		i.active,
+		i.selected {
+			color: $primary-color;
+		}
+	}
+	&__rate-bx-show {
+		display: inline-block;
+		color: $text-color;
+		font-weight: 300;
+		font-size: 1rem;
+		margin-bottom: 1.5rem;
+	}
+	&__upload-btn {
+		text-align: right;
+		position: relative;
+		span {
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 0.25rem 0.625rem;
+			color: $text-color;
+			font-size: 0.875rem;
+			font-weight: 200;
+			border: 1px solid #cccccc;
+			@include border-radius(1.25rem);
+			@include transition(0.2s);
+			i {
+				font-size: 1rem;
+				float: left;
+				margin-right: 0.25rem;
+				margin-top: 0.125rem;
+			}
+		}
+	}
+	&__input-file {
+		display: inline-block;
+		width: 136px;
+		opacity: 0;
+		position: relative;
+		z-index: 2;
+	}
+	&__input-file:hover + span {
+		color: $primary-color;
+		border-color: $primary-color;
+	}
+	@media (max-width: 767px) {
+		&__upload-btn {
+			text-align: left;
+			margin-bottom: 2rem;
+			span {
+				left: 0;
+				right: initial;
+			}
+		}
+	}
+}
+.inner-review {
+	padding: 2rem 0;
+	background: transparent;
+	border: none;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #ebebeb;
+	&__form {
+		overflow: hidden;
+		img {
+			float: left;
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	}
+	&__form-box {
+		margin-left: 4.5rem;
+	}
+}
+.inner-review.without-border {
+	padding-top: 0;
+	border-top: none;
+}
+
+

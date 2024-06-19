@@ -1,16 +1,844 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Search Places</title>
-</head>
-<body>
-    <input type="text" id="searchQuery" placeholder="Enter search query">
-    <button id="searchPlacesBtn">Search Places</button>
+<!doctype html>
 
+
+<html lang="en" class="no-js">
+
+<head>
+    <title>Bitirme Projesi</title>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/triptip-assets.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        .place-post__image {
+            width: 100%;
+            max-width: 300px;
+            max-height: 200px;
+        }
+
+        .owl-carousel.owl-theme {
+            display: flex !important;
+            justify-content: space-between;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Container -->
+    <div id="container">
+        <!-- Header
+		    ================================================== -->
+        <header class="clearfix white-header-style">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/marker.png" alt="">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li><a href="index.html">Homepage</a></li>
+                            <li><a href="explore-sidebar-map.html">Explore</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto right-list">
+                            <li><a href="sign-page.html"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                    Sign In</a></li>
+                            <li><a href="sign-page.html"><i class="fa fa-user-o" aria-hidden="true"></i> Register</a>
+                            </li>
+                        </ul>
+                        <a href="user-page.html" class="add-list-btn btn-default"><i aria-hidden="true"></i>Profile</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- End Header -->
+
+        <!-- discover-module section
+			================================================== -->
+        <section class="discover discover-favourite">
+            <div class="container">
+
+                <p class="discover__description">
+                    Find out perfect place to hangout in your city.
+                </p>
+
+                <h1 class="discover__title places-tab">
+                    Explore our favorite places.
+                </h1>
+
+                <form class="discover__form discover__form-favourite">
+                    <input class="discover__form-input discover__form-input-favourite" type="text" name="place-event"
+                        id="searchQuery" placeholder="What are you looking for?" />
+                    <button class="btn-default btn-default-red" id="searchPlacesBtn" type="submit"><i
+                            class="fa fa-search" aria-hidden="true"></i> Search</button>
+                    <button id="findEventsBtn" hidden>Find Events</button>
+                </form>
+
+            </div>
+        </section>
+        <!-- End discover-module section -->
+        <!-- trending-places-block
+			================================================== -->
+        <section class="trending-places">
+            <div class="container">
+
+                <!-- section-header module -->
+                <div class="section-header">
+                    <h1 class="section-header__title">
+                        Top Trending Places
+                    </h1>
+                    <p class="section-header__description">
+                        Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+                    </p>
+                </div>
+                <!-- end section-header module -->
+
+
+                <div class="trending-places__box owl-wrapper">
+                    <div class="owl-carousel" data-num="5">
+
+                        <div class="item">
+
+                            <!-- place-post module -->
+                            <div class="place-post">
+                                <div class="place-post__gal-box">
+                                    <img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+                                    <span class="place-post__rating">9.3</span>
+                                    <a class="place-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="place-post__content">
+                                    <p class="place-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">Open</span> until 8:00 PM
+                                    </p>
+                                    <h2 class="place-post__title">
+                                        <a href="listing-detail-fullwidth.html">Fifteen Restaurant & Cheese bar</a>
+                                    </h2>
+                                    <p class="place-post__description">
+                                        Restaurant
+                                        <span>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </span>
+                                    </p>
+                                    <p class="place-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        1149 3rd St (Wilshire), Santa Monica
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end place-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- place-post module -->
+                            <div class="place-post">
+                                <div class="place-post__gal-box">
+                                    <img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+                                    <span class="place-post__rating">9.0</span>
+                                    <a class="place-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="place-post__content">
+                                    <p class="place-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="closed">Closed</span> until 11:00 AM
+                                    </p>
+                                    <h2 class="place-post__title">
+                                        <a href="listing-detail-fullwidth.html">Frankies 457 Spuntino</a>
+                                    </h2>
+                                    <p class="place-post__description">
+                                        Cafe
+                                        <span>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </span>
+                                    </p>
+                                    <p class="place-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        457 Court St, Brooklyn
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end place-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- place-post module -->
+                            <div class="place-post">
+                                <div class="place-post__gal-box">
+                                    <img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+                                    <span class="place-post__rating average-rat">8.5</span>
+                                    <a class="place-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="place-post__content">
+                                    <p class="place-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">Open</span> 24/7
+                                    </p>
+                                    <h2 class="place-post__title">
+                                        <a href="listing-detail-fullwidth.html">Hotel Van Gogh</a>
+                                    </h2>
+                                    <p class="place-post__description">
+                                        Hostel
+                                        <span>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </span>
+                                    </p>
+                                    <p class="place-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        Van de Veldestraat 5, Amsterdam
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end place-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- place-post module -->
+                            <div class="place-post">
+                                <div class="place-post__gal-box">
+                                    <img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+                                    <span class="place-post__rating">9.1</span>
+                                    <a class="place-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="place-post__content">
+                                    <p class="place-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">Likely Open</span>
+                                    </p>
+                                    <h2 class="place-post__title">
+                                        <a href="listing-detail-fullwidth.html">Caffè Pascucci</a>
+                                    </h2>
+                                    <p class="place-post__description">
+                                        Cafe
+                                        <span>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </span>
+                                    </p>
+                                    <p class="place-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        Piazza della Repubblica, Florence
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end place-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- place-post module -->
+                            <div class="place-post">
+                                <div class="place-post__gal-box">
+                                    <img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+                                    <span class="place-post__rating solid-rat">6.2</span>
+                                    <a class="place-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="place-post__content">
+                                    <p class="place-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">Open</span> 24/7
+                                    </p>
+                                    <h2 class="place-post__title">
+                                        <a href="listing-detail-fullwidth.html">Beautiful City Hostel & Hotel</a>
+                                    </h2>
+                                    <p class="place-post__description">
+                                        Hotel
+                                        <span>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </span>
+                                    </p>
+                                    <p class="place-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        12 rue de l'atlas, Paris
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end place-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- place-post module -->
+                            <div class="place-post">
+                                <div class="place-post__gal-box">
+                                    <img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+                                    <span class="place-post__rating">9.3</span>
+                                    <a class="place-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="place-post__content">
+                                    <p class="place-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">Open</span> until 8:00 PM
+                                    </p>
+                                    <h2 class="place-post__title">
+                                        <a href="listing-detail-fullwidth.html">Fifteen Restaurant & Cheese bar</a>
+                                    </h2>
+                                    <p class="place-post__description">
+                                        Restaurant
+                                        <span>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd red-col" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </span>
+                                    </p>
+                                    <p class="place-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        1149 3rd St (Wilshire), Santa Monica
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end place-post module -->
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="center-button">
+                    <a class="text-btn" href="explore-sidebar-map.html">
+                        View All Places
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- End trending-places-block -->
+
+        <!-- trending-events-block
+            ================================================== -->
+        <section class="trending-events">
+            <div class="container">
+
+                <!-- section-header module -->
+                <div class="section-header">
+                    <h1 class="section-header__title">
+                        Top Trending Events
+                    </h1>
+                    <p class="section-header__description">
+                        Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien
+                        ornare nisl.
+                    </p>
+                </div>
+                <!-- end section-header module -->
+
+
+                <div class="trending-events__box owl-wrapper">
+                    <div class="owl-carousel" data-num="5">
+
+                        <div class="item">
+
+                            <!-- event-post module -->
+                            <div class="event-post">
+                                <div class="event-post__gal-box">
+                                    <img class="event-post__image" src="upload/concert.jpg" alt="place-image">
+                                    <span class="event-post__date">04/10</span>
+                                    <a class="event-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="event-post__content">
+                                    <p class="event-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">6:30 pm</span>
+                                    </p>
+                                    <h2 class="event-post__title">
+                                        <a href="listing-detail-fullwidth.html">Fifteen Restaurant & Cheese</a>
+                                    </h2>
+                                    <p class="event-post__description">
+                                        Music
+                                    </p>
+                                    <p class="event-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        457 Court St, Brooklyn
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end event-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- event-post module -->
+                            <div class="event-post">
+                                <div class="event-post__gal-box">
+                                    <img class="event-post__image" src="upload/concert.jpg" alt="place-image">
+                                    <span class="event-post__date">02/08</span>
+                                    <a class="event-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="event-post__content">
+                                    <p class="event-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">2:00 pm</span>
+                                    </p>
+                                    <h2 class="event-post__title">
+                                        <a href="listing-detail-fullwidth.html">Children World of Adventures Resort</a>
+                                    </h2>
+                                    <p class="event-post__description">
+                                        Parks
+                                    </p>
+                                    <p class="event-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        London, United Kingdom
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end event-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- event-post module -->
+                            <div class="event-post">
+                                <div class="event-post__gal-box">
+                                    <img class="event-post__image" src="upload/concert.jpg" alt="place-image">
+                                    <span class="event-post__date">02/08</span>
+                                    <a class="event-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="event-post__content">
+                                    <p class="event-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">4:00 pm</span>
+                                    </p>
+                                    <h2 class="event-post__title">
+                                        <a href="listing-detail-fullwidth.html">Secret Food Tour</a>
+                                    </h2>
+                                    <p class="event-post__description">
+                                        Tours
+                                    </p>
+                                    <p class="event-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        Via Mozart 14, Milan
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end event-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- event-post module -->
+                            <div class="event-post">
+                                <div class="event-post__gal-box">
+                                    <img class="event-post__image" src="upload/concert.jpg" alt="place-image">
+                                    <span class="event-post__date">02/08</span>
+                                    <a class="event-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="event-post__content">
+                                    <p class="event-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">8:00 pm</span>
+                                    </p>
+                                    <h2 class="event-post__title">
+                                        <a href="listing-detail-fullwidth.html">The Alternative Selection</a>
+                                    </h2>
+                                    <p class="event-post__description">
+                                        Music
+                                    </p>
+                                    <p class="event-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        Cockpit Theatre, London
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end event-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- event-post module -->
+                            <div class="event-post">
+                                <div class="event-post__gal-box">
+                                    <img class="event-post__image" src="upload/concert.jpg" alt="place-image">
+                                    <span class="event-post__date">23/12</span>
+                                    <a class="event-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="event-post__content">
+                                    <p class="event-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">3:00 pm</span>
+                                    </p>
+                                    <h2 class="event-post__title">
+                                        <a href="listing-detail-fullwidth.html">Dresden Day Trip from Berlin</a>
+                                    </h2>
+                                    <p class="event-post__description">
+                                        Tours
+                                    </p>
+                                    <p class="event-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        Berlin, Germany
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end event-post module -->
+
+                        </div>
+
+                        <div class="item">
+
+                            <!-- event-post module -->
+                            <div class="event-post">
+                                <div class="event-post__gal-box">
+                                    <img class="event-post__image" src="upload/concert.jpg" alt="place-image">
+                                    <span class="event-post__date">04/10</span>
+                                    <a class="event-post__like" href="#"><i class="fa fa-heart-o"
+                                            aria-hidden="true"></i></a>
+                                </div>
+                                <div class="event-post__content">
+                                    <p class="event-post__info">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span class="open">6:30 pm</span>
+                                    </p>
+                                    <h2 class="event-post__title">
+                                        <a href="listing-detail-fullwidth.html">Fifteen Restaurant & Cheese</a>
+                                    </h2>
+                                    <p class="event-post__description">
+                                        Music
+                                    </p>
+                                    <p class="event-post__address">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        457 Court St, Brooklyn
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end event-post module -->
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="center-button">
+                    <a class="text-btn" href="listing-detail-fullwidth.html">
+                        View All Events
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- End trending-events-block -->
+
+        <!-- news-block
+			================================================== -->
+        <section class="news">
+            <div class="container">
+
+                <!-- section-header module -->
+                <div class="section-header">
+                    <h1 class="section-header__title">
+                        News & Tips
+                    </h1>
+                    <p class="section-header__description">
+                        Suspendisse urna nibh, viverra non.
+                    </p>
+                </div>
+                <!-- end section-header module -->
+
+                <div class="news__box">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- news-post module -->
+                            <div class="news-post">
+                                <div class="news-post__gal">
+                                    <img src="upload/tips.jpg" alt="">
+                                    <span class="news-post__date">
+                                        2018/12/26
+                                    </span>
+                                </div>
+                                <div class="news-post__content">
+                                    <h2 class="news-post__title">
+                                        <a href="single-post.html">The Top Restaurants in London</a>
+                                    </h2>
+                                    <ul class="news-post__tags">
+                                        <li><a href="#">Lifestyle,</a></li>
+                                        <li><a href="#">Restaurants,</a></li>
+                                        <li><a href="#">City</a></li>
+                                    </ul>
+                                    <p class="news-post__description">
+                                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit
+                                        amet orci ...
+                                    </p>
+                                    <a class="text-btn text-btn-grey" href="#">
+                                        Continue Reading ...
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end news-post module -->
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- news-post module -->
+                            <div class="news-post">
+                                <div class="news-post__gal">
+                                    <img src="upload/tips.jpg" alt="">
+                                    <span class="news-post__date">
+                                        2018/12/26
+                                    </span>
+                                </div>
+                                <div class="news-post__content">
+                                    <h2 class="news-post__title">
+                                        <a href="single-post.html">Best Museum of The World</a>
+                                    </h2>
+                                    <ul class="news-post__tags">
+                                        <li><a href="#">Journey,</a></li>
+                                        <li><a href="#">Travel,</a></li>
+                                        <li><a href="#">City</a></li>
+                                    </ul>
+                                    <p class="news-post__description">
+                                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit
+                                        amet orci ...
+                                    </p>
+                                    <a class="text-btn text-btn-grey" href="#">
+                                        Continue Reading ...
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end news-post module -->
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- news-post module -->
+                            <div class="news-post">
+                                <div class="news-post__gal">
+                                    <img src="upload/tips.jpg" alt="">
+                                    <span class="news-post__date">
+                                        2018/12/26
+                                    </span>
+                                </div>
+                                <div class="news-post__content">
+                                    <h2 class="news-post__title">
+                                        <a href="single-post.html">Handpicked places</a>
+                                    </h2>
+                                    <ul class="news-post__tags">
+                                        <li><a href="#">Lifestyle,</a></li>
+                                        <li><a href="#">City</a></li>
+                                    </ul>
+                                    <p class="news-post__description">
+                                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit
+                                        amet orci ...
+                                    </p>
+                                    <a class="text-btn text-btn-grey" href="#">
+                                        Continue Reading ...
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end news-post module -->
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- news-post module -->
+                            <div class="news-post">
+                                <div class="news-post__gal">
+                                    <img src="upload/tips.jpg" alt="">
+                                    <span class="news-post__date">
+                                        2018/12/26
+                                    </span>
+                                </div>
+                                <div class="news-post__content">
+                                    <h2 class="news-post__title">
+                                        <a href="single-post.html">The Sydney Fire Show</a>
+                                    </h2>
+                                    <ul class="news-post__tags">
+                                        <li><a href="#">Show,</a></li>
+                                        <li><a href="#">Travel</a></li>
+                                    </ul>
+                                    <p class="news-post__description">
+                                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit
+                                        amet orci ...
+                                    </p>
+                                    <a class="text-btn text-btn-grey" href="#">
+                                        Continue Reading ...
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end news-post module -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="center-button">
+                    <a class="text-btn" href="blog.html">
+                        Read Our Blog
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <!-- End news-block -->
+
+        <!-- banner-block
+		================================================== -->
+        <section class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <!-- section-header module -->
+                        <div class="section-header">
+                            <h1 class="section-header__title white-style">
+                                Join Our Amazing Community
+                            </h1>
+                            <p class="section-header__description white-style">
+                                Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit, sed diam nonu mmy nibh
+                                euimdod tincidunt ut laoreet dolore magna aliquam erat.
+                            </p>
+                        </div>
+                        <!-- end section-header module -->
+
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn-default" href="sign-page.html">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            Register Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End banner-block -->
+
+        <!-- footer block module
+			================================================== -->
+        <footer class="footer footer-black">
+            <div class="container">
+
+                <div class="footer__up-part">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="footer__widget text-widget">
+                                <img src="images/marker.png" alt="triptip-logo">
+                                <p class="footer__widget-description">
+                                    Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit, sed diam nonu mmy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="footer__widget subscribe-widget">
+                                <h2 class="footer__widget-title footer__widget-title-white">
+                                    Subscribe
+                                </h2>
+                                <p class="footer__widget-description">
+                                    Be notified about new locations
+                                </p>
+                                <form class="footer__subscribe-form">
+                                    <input class="footer__subscribe-input" type="text" name="email-sub" id="email-sub"
+                                        placeholder="Enter your Email" />
+                                    <button class="footer__subscribe-button footer__subscribe-button-primary"
+                                        type="submit">
+                                        <i class="la la-arrow-circle-o-right" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="footer__widget text-widget">
+                                <h2 class="footer__widget-title footer__widget-title-white">
+                                    Contact Info
+                                </h2>
+                                <p class="footer__widget-description">
+                                    1000 5th Ave to Central Park, New York <br>
+                                    +1 246-345-0695 <br>
+                                    info@example.com
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer__down-part footer__down-part-black">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p class="footer__copyright">
+                                © Copyright 2018 - All Rights Reserved
+                            </p>
+                        </div>
+                        <div class="col-md-5">
+                            <ul class="footer__social-list">
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </footer>
+        <!-- End footer -->
+
+    </div>
+    <!-- backend işlevleri -->
     <script>
-        document.getElementById('searchPlacesBtn').addEventListener('click', () => {
+        document.getElementById('searchPlacesBtnBackup').addEventListener('click', function (event) {
+            event.preventDefault(); // Formun varsayılan gönderimini durdur
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(position => {
+                navigator.geolocation.getCurrentPosition(function (position) {
                     const query = document.getElementById('searchQuery').value;
                     const { latitude, longitude } = position.coords;
 
@@ -33,6 +861,242 @@
                 alert('Geolocation is not supported by this browser.');
             }
         });
+
+        document.getElementById('findEventsBtn').addEventListener('click', function (event) {
+            event.preventDefault(); // Burada da aynı şekilde
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const { latitude, longitude } = position.coords;
+
+                    fetch('/find-events', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ latitude, longitude })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Success:', data);
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+
+
     </script>
+
+    <!-- Top Trend place  -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const { latitude, longitude } = position.coords;
+
+                    fetch('/find-popular', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ latitude, longitude })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === "Popular destinations search completed") {
+                                updateTrendingPlaces(data.destinations.sights);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                }, function (error) {
+                    console.error('Geolocation error:', error);
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+
+        function updateTrendingPlaces(sights) {
+            const placesContainer = document.querySelector('.trending-places__box .owl-carousel');
+            placesContainer.innerHTML = ''; // Mevcut içeriği temizle
+
+            sights.forEach(sight => {
+                const placeHTML = `
+                    <div class="item">
+                        <div class="place-post">
+                            <div class="place-post__gal-box">
+                                <img class="place-post__image" src="${sight.thumbnail}" alt="place-image">
+                                <span class="place-post__rating">${sight.rating}</span>
+                                <a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="place-post__content">
+                                <h2 class="place-post__title">
+                                    <a href="${sight.link}">${sight.title}</a>
+                                </h2>
+                                <p class="place-post__description">
+                                    ${sight.description}
+                                    <span class="price-range">
+                                        <!-- Price or other icons can be dynamically inserted here -->
+                                    </span>
+                                </p>
+                                <p class="place-post__address">
+                                    ${sight.reviews} reviews
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                placesContainer.innerHTML += placeHTML; // Öğeleri owl-carousel içine ekleyin
+            });
+        }
+    </script>
+
+    <!-- Top Trend place  -->
+
+
+
+
+    <!-- find events  -->
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const { latitude, longitude } = position.coords;
+        
+                    fetch('/find-events', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ latitude, longitude })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === "Events search completed") {
+                            updateTrendingEvents(data.events);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }, function(error) {
+                    console.error('Geolocation error:', error);
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+        
+        function updateTrendingEvents(events) {
+            const eventsContainer = document.querySelector('.trending-events__box .owl-carousel');
+            eventsContainer.innerHTML = ''; // Mevcut içeriği temizle
+        
+            events.forEach(event => {
+                const eventHTML = `
+                    <div class="item">
+                        <div class="event-post">
+                            <div class="event-post__gal-box">
+                                <img class="event-post__image" src="${event.thumbnail}" alt="event-image">
+                                <span class="event-post__date">${event.date.start_date}</span>
+                                <a class="event-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="event-post__content">
+                                <p class="event-post__info">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    <span class="open">${event.date.when}</span>
+                                </p>
+                                <h2 class="event-post__title">
+                                    <a href="${event.link}">${event.title}</a>
+                                </h2>
+                                <p class="event-post__description">
+                                    ${event.description ? event.description : ""}
+                                </p>
+                                <p class="event-post__address">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    ${event.address.join(", ")}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                eventsContainer.innerHTML += eventHTML; // Öğeleri owl-carousel içine ekleyin
+            });
+        }
+        </script>
+        
+            
+    <!-- find events  -->
+
+
+
+
+    <!-- Search  -->
+
+
+    <script>
+        document.getElementById('searchPlacesBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Formun varsayılan gönderimini durdur
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const query = document.getElementById('searchQuery').value;
+                    const { latitude, longitude } = position.coords;
+    
+                    fetch('/search-places', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ latitude, longitude, query })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === "Search completed") {
+                            sessionStorage.setItem('searchResults', JSON.stringify(data.results));
+                            window.location.href = 'explore-sidebar-map.html';
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+    </script>
+    
+
+
+    <!-- Search  -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.migrate.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI"></script>
+    <!--build:js js/triptip-plugins.min.js -->
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/jquery.imagesloaded.min.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/retina-1.1.0.min.js"></script>
+    <script src="js/jquery.appear.js"></script>
+    <script src="js/infobox.min.js"></script>
+    <script src="js/markerclusterer.js"></script>
+    <script src="js/maps.js"></script>
+    <!-- endbuild -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>

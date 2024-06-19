@@ -1,0 +1,160 @@
+
+/*------------------------------------------------- */
+/* =  review-item module
+/*------------------------------------------------- */
+
+.review-item {
+	border: 1px solid #ebebeb;
+	background: #fff;
+	@include border-radius(3px);
+	@include box-shadow(0 0 10px rgba(0,0,0,0.03));
+	&__post {
+		padding: 1.25rem;
+		border-bottom: 1px solid #eeeeee;
+		display: flex;
+	}
+	&__content {
+		padding: 1.25rem;
+	}
+	&__post-image {
+		margin-right: 1.25rem;
+	}
+	&__image {
+		width: 4.375rem;
+		height: auto;
+	}
+	&__post-title {
+		font-size: 0.9375rem;
+		margin-bottom: 0;
+		a {
+			color: $title-color;
+		}
+		a:hover {
+			color: $primary-color;
+		}
+	}
+	&__post-location {
+		font-size: 0.8125rem;
+		color: #ccc;
+		padding-bottom: 0.375rem;
+		margin-bottom: 0.25rem;
+		border-bottom: 1px solid #eeeeee;
+		line-height: 1rem;
+	}
+	&__post-reviews {
+		display: inline-block;
+		font-size: 0.8125rem;
+		color: $text-color;
+		line-height: 1rem;
+		font-weight: 300;
+		i {
+			color: #cccccc;
+		}
+	}
+	&__title {
+		color: $title-color;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25rem;
+		margin: 0;
+	}
+	&__date {
+		display: inline-block;
+		color: $text-color;
+		font-size: 0.9375rem;
+		font-weight: 200;
+		line-height: 1.25rem;
+		margin: 0 0 1rem;
+	}
+	&__rating {
+		display: inline-block;
+		padding: 0.3rem 0.5rem;
+		background: rgba(122,201,101,0.9);
+		@include border-radius(3px);
+		color: #fff;
+		font-size: 1rem;
+		font-weight: 400;
+		margin-right: 0.25rem;
+	}
+	&__rating.average-rat {
+		background: #bdbc60;
+	}
+	&__rating.solid-rat {
+		background: #cc9334;
+	}
+	&__rating.low-rat {
+		background: $primary-color;
+	}
+	&__description {
+		color: #666666;
+		margin-bottom: 1.25rem;
+	}
+	&__reply {
+		float: right;
+		padding: 0.25rem 0.5rem;
+		color: $text-color;
+		font-size: 0.875rem;
+		font-weight: 200;
+		border: 1px solid #ebebeb;
+		@include border-radius(1.25rem);
+		i {
+			font-size: 1rem;
+			float: left;
+			margin-right: 0.25rem;
+			margin-top: 0.125rem;
+		}
+	}
+	&__reply:hover {
+		color: $primary-color;
+		border-color: $primary-color;
+	}
+	&__helpful {
+		padding: 0.25rem 0.5rem;
+		padding-right: 2.5rem;
+		color: $text-color;
+		font-size: 0.875rem;
+		font-weight: 200;
+		border: 1px solid #ebebeb;
+		position: relative;
+		@include border-radius(0.125rem);
+		i {
+			font-size: 1rem;
+			float: left;
+			margin-right: 0.25rem;
+			margin-top: 0.125rem;
+			@include transition(0.2s);
+		}
+		span {
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: 0.25rem 0;
+			text-align: center;
+			color: #666666;
+			font-size: 0.875rem;
+			display: inline-block;
+			width: 2rem;
+			border-left: 1px solid #ebebeb;
+			@include transition(0.2s);
+		}
+	}
+	&__helpful.active,
+	&__helpful:hover {
+		color: $title-color;
+		border-color: #3399ff;
+		i {
+			color: #3399ff;
+		}
+		span {
+			border-left-color: #3399ff;
+			background: #3399ff;
+			color: #fff;
+		}
+	}
+	@media (max-width: 767px) {
+		&__date {
+			float: none;
+			display: block;
+		}
+	}
+}
