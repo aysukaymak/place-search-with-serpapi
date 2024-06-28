@@ -1,3 +1,104 @@
-#For node_modules
+# Node.js
 /node_modules
-/.env
+/npm-debug.log
+/yarn-error.log
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Dependency directories
+jspm_packages/
+client/node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Compiled JavaScript files
+*.js
+*.jsx
+*.js.map
+*.cjs
+*.mjs
+
+# JavaScript test coverage
+coverage/
+
+# Build artifacts
+dist/
+build/
+.cache/
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE/editor specific
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# HTML
+*.html
+
+# CSS
+*.css
+
+# SCSS
+*.scss
+*.sass-cache
+
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+
+# Flask
+instance/
+.webassets-cache
+
+# Python environment
+.venv/
+venv/
+ENV/
+env.bak/
+env/
+
+# Python-specific logs
+*.log
+*.pot
+*.pyc
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Jupyter Notebook config
+.jupyter/
+.jupyter_nbconvert_config.json
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Flask bytecode cache
+*.pyo
+*.pyo3
+*.pyc
+
+# Flask static files
+instance/
+.webassets-cache
+instance/
