@@ -70,6 +70,19 @@ app.post('/find-popular', async (req, res) => {
     res.status(200).json({ status: 'Popular destinations search completed', destinations: destinationsData });
 });
 
+
+app.post('/similar-places', async (req, res) => {
+    const { latitude, longitude, query } = req.body;
+    const city = await reverseGeocode(latitude, longitude);
+    const latlong = `${latitude},${longitude}`;
+    try {
+        const results = await nearbySearch(latlong, query, city);
+        res.status(200).json({ status: 'Similar places search completed', results });
+    } catch (error) {
+        res.status(500).json({ status: 'Error', error: error.message });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
