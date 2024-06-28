@@ -16,8 +16,6 @@ async function findEvents(query) {
             hl: "en"
         };
         const json = await getJson(params);
-        console.log(params);        
-        console.log(json.events_results);
         return json.events_results;
     } catch (error) {
         console.error("Error finding events:", error);
@@ -27,7 +25,13 @@ async function findEvents(query) {
 
 async function events(query) {
     try {
-        return await findEvents(query);
+        const events = await findEvents(query);
+        for (const event of events) {
+            const images = await inlineImages(event.title, query);
+            event.images = images;
+        }
+        console.log(events);
+        return events;
     } catch (error) {
         console.error("Error in events function:", error);
         throw error;

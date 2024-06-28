@@ -12,9 +12,8 @@ async function findDestinations(query) {
             q: `${query} Destinations`,
             api_key: apiKey
         };
+        console.log(params);
         const json = await getJson(params);
-        console.log(params);        
-        console.log(json.top_sights);
         return json.top_sights;
     } catch (error) {
         console.error("Error finding destinations:", error);
@@ -24,7 +23,13 @@ async function findDestinations(query) {
 
 async function popularDestinations(query) {
     try {
-        return await findDestinations(query);
+        const destinations = await findDestinations(query);
+        for (const destination of destinations) {
+            const images = await inlineImages(destination.title, query);
+            destination.images = images;
+        }
+        console.log(destinations);
+        return destinations;
     } catch (error) {
         console.error("Error in destinations function:", error);
         throw error;

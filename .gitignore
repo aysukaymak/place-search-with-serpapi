@@ -17,7 +17,7 @@ client/node_modules/
 .env.*
 
 # Compiled JavaScript files
-*.js
+#*.js
 *.jsx
 *.js.map
 *.cjs
