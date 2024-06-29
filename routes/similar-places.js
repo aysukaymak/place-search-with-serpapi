@@ -1,4 +1,3 @@
-import { getJson } from "serpapi";
 import dotenv from 'dotenv';
 
 import nearbySearch from './nearby-search.js';

@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const apiKey = `${process.env.SERPAPI_API_KEY}`;
+const apiKey = '7c7e2b6f7a16407ff05688459ecaabb120929b829c54433c15e653ee0e8de942';
 
 async function searchImages(query, city) {
     try {
@@ -16,8 +16,9 @@ async function searchImages(query, city) {
             api_key: apiKey,
         };
         const json = await getJson(params);
-        const image_list = json.inline_images.map(item => item.original);
-        console.log(image_list);
+        const image_list = json.inline_images ? json.inline_images.map(item => item.original)
+            : json.knowledge_graph.header_images ? json.knowledge_graph.header_images.map(item => item.image)
+                : [];
         return image_list;
     } catch (error) {
         console.error("Error searching images:", error);
@@ -34,4 +35,4 @@ async function inlineImages(query, city) {
     }
 }
 
-export default { inlineImages };
+export { inlineImages };
