@@ -4,7 +4,7 @@ import connectDB from '../scripts/db-connection.js';
 async function addVisitedPlace(req, res) {
     const db = await connectDB();
 
-    //_id refers to object id
+    //_id refers to list id
     const { list_id, place } = req;
 
     try {
@@ -21,7 +21,7 @@ async function addVisitedPlace(req, res) {
 async function addFavPlace(req, res) {
     const db = await connectDB();
 
-    //_id refers to object id
+    //_id refers to list id
     const { list_id, place } = req;
 
     try {

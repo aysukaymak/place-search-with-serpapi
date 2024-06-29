@@ -21,7 +21,10 @@ const runCommand = (command) => {
 //* List of npm install commands
 //* If new dependencies or modules need to be added to the project, related commands should be written here
 const commands = [
-  'npm install dotenv bcrypt jsonwebtoken multer',
+  'npm install dotenv',
+  'npm install bcrypt',
+  'npm install jsonwebtoken',
+  'npm install multer',
   'npm install serpapi@latest',
   'npm install mongodb@latest mongoose@latest',
   'npm install express@latest'

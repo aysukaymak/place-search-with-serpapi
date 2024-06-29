@@ -909,7 +909,7 @@
                         .then(response => response.json())
                         .then(data => {
                             if (data.status === "Popular destinations search completed") {
-                                updateTrendingPlaces(data.destinations.sights);
+                                updateTrendingPlaces(data.destinations);
                             }
                         })
                         .catch(error => {
@@ -925,20 +925,20 @@
 
         function updateTrendingPlaces(sights) {
             const placesContainer = document.querySelector('.trending-places__box .owl-carousel');
-            placesContainer.innerHTML = ''; // Mevcut içeriği temizle
+            placesContainer.innerHTML = ''; // Clear existing content
 
             sights.forEach(sight => {
                 const placeHTML = `
                     <div class="item">
                         <div class="place-post">
                             <div class="place-post__gal-box">
-                                <img class="place-post__image" src="${sight.thumbnail}" alt="place-image">
+                                <img class="place-post__image" src="${sight.images[0]}" alt="place-image">
                                 <span class="place-post__rating">${sight.rating}</span>
                                 <a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
                             <div class="place-post__content">
                                 <h2 class="place-post__title">
-                                    <a href="${sight.link}">${sight.title}</a>
+                                    <a href="listing-detail-fullwidth.html?type=${encodeURIComponent(sight.type)}&title=${encodeURIComponent(sight.title)}&url=${encodeURIComponent(sight.link)}&thumbnail=${encodeURIComponent(sight.images[0])}&rating=${encodeURIComponent(sight.rating)}&reviews=${encodeURIComponent(sight.reviews)}">${sight.title}</a>
                                 </h2>
                                 <p class="place-post__description">
                                     ${sight.description}
@@ -953,7 +953,7 @@
                         </div>
                     </div>
                 `;
-                placesContainer.innerHTML += placeHTML; // Öğeleri owl-carousel içine ekleyin
+                placesContainer.innerHTML += placeHTML; // Add items to owl-carousel
             });
         }
     </script>
@@ -1004,7 +1004,7 @@
                     <div class="item">
                         <div class="event-post">
                             <div class="event-post__gal-box">
-                                <img class="event-post__image" src="${event.thumbnail}" alt="event-image">
+                                <img class="event-post__image" src="${event.images[0]}" alt="event-image">
                                 <span class="event-post__date">${event.date.start_date}</span>
                                 <a class="event-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
