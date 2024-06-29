@@ -11,7 +11,7 @@ async function findDestinations(query) {
     try {
         const params = {         
             engine: "google",
-            q: 'Ankara Destinations', // `${query} Destinations`,
+            q: `${query} Destinations`,
             api_key: apiKey
         };
         const json = await getJson(params);
@@ -26,7 +26,7 @@ async function popularDestinations(query) {
     try {
         const destinations = await findDestinations(query);
         for (const destination of destinations) {
-            const images = await inlineImages(destination.title, 'Ankara');
+            const images = await inlineImages(destination.title, query);
             destination.images = images;
         }
         //console.log('Destinations=', destinations);

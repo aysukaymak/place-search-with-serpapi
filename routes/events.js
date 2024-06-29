@@ -12,7 +12,7 @@ async function findEvents(query) {
         const params = {
             api_key: apiKey,
             engine: "google",
-            q: 'Events in Ankara', //`Events in ${query}`,
+            q: `Events in ${query}`,
             google_domain: "google.com",
             gl: "us",
             hl: "en"
@@ -29,7 +29,7 @@ async function events(query) {
     try {
         const events = await findEvents(query);
         for (const event of events) {
-            const images = await inlineImages(event.title, 'Ankara');
+            const images = await inlineImages(event.title, query);
             event.images = images;
         }
         //console.log('Events=', events);

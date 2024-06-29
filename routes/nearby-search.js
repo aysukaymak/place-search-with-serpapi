@@ -12,7 +12,7 @@ async function searchPlaces(latlong, query) {
         const params = {
             engine: "google_maps",
             q: 'Ankara',
-            ll: '@39.91987,32.85427,15.1z',//`@${latlong},15.1z`,
+            ll: `@${latlong},15.1z`,
             type: "search",
             api_key: apiKey
         };
@@ -28,7 +28,7 @@ async function nearbySearch(latlong, query, city) {
     try {
         const places = await searchPlaces(latlong, query);
         for (const place of places) {
-            //const images = await inlineImages(place.title, 'Ankara');
+            //const images = await inlineImages(place.title, query);
             //place.images = images;
         }
         return places;
