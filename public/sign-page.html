@@ -128,33 +128,14 @@
 					<div class="tab-pane fade show active" id="nav-sign" role="tabpanel" aria-labelledby="nav-sign-tab">
 
 						<!-- sign-form-module -->
-						<form class="sign-form">
-							<label class="sign-form__label" for="username">
-								Email address or Username:
-							</label>
+						<form class="login-form">
+							<label class="sign-form__label" for="username">Username:</label>
 							<input class="sign-form__input-text" type="text" name="username" id="username" placeholder="Email or Username" />
-							<label class="sign-form__label" for="password">
-								Password:
-							</label>
+							<label class="sign-form__label" for="password">Password:</label>
 							<input class="sign-form__input-text" type="password" name="password" id="password" placeholder="Password" />
-							<div class="sign-form__checkbox">
-								<input class="sign-form__input-checkbox" type="checkbox" name="rememb-check" id="rememb-check"/>
-								<span class="sign-form__checkbox-style"></span>
-								<span class="sign-form__checkbox-text">Remember me</span>
-							</div>
-							<a class="sign-form__forget-link" href="#">Forget password?</a>
-
-							<button  class="sign-form__submit" id="submit-loggin" type="submit">
-								<i class="fa fa-sign-in" aria-hidden="true"></i>
-								Login
+							<button class="sign-form__submit" id="submit-login" type="submit">
+								<i class="fa fa-sign-in" aria-hidden="true"></i> Login
 							</button>
-							<!-- <p class="sign-form__text">
-								or Login With
-							</p> -->
-							<!-- <ul class="sign-form__social">
-								<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#" class="google"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-							</ul> -->
 						</form>
 
 						<!-- End sign-form-module -->
@@ -164,7 +145,7 @@
 
 
 						<!-- sign-form-module -->
-						<form class="sign-form">
+						<form class="register-form">
 							<label class="sign-form__label" for="email">
 								Email address:
 							</label>
@@ -181,25 +162,25 @@
 								Confirm Password:
 							</label>
 							<input class="sign-form__input-text" type="password" name="con-password2" id="con-password2" placeholder="Confirm Password" />
+							<label class="sign-form__label" for="phone">
+								Phone Number:
+							</label>
+							<input class="sign-form__input-text" type="text" name="phone" id="phone" placeholder="Enter your phone number" />
+							<label class="sign-form__label" for="city">
+								City:
+							</label>
+							<input class="sign-form__input-text" type="text" name="city" id="city" placeholder="Enter your city" />
 							<div class="sign-form__checkbox">
 								<input class="sign-form__input-checkbox" type="checkbox" name="rememb-check2" id="rememb-check2"/>
 								<span class="sign-form__checkbox-style"></span>
 								<span class="sign-form__checkbox-text">I've read and accept terms & conditions</span>
 							</div>
-
-							<button  class="sign-form__submit" type="submit" id="submit_signup">
+							<button class="sign-form__submit" type="submit" id="submit_signup">
 								<i class="fa fa-sign-in" aria-hidden="true"></i>
 								Sign Up
 							</button>
-							<!-- <p class="sign-form__text">
-								or Sign Up With
-							</p>
-							<ul class="sign-form__social">
-								<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#" class="google"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-							</ul> -->
 						</form>
-
+						
 						<!-- End sign-form-module -->
 					</div>
 				</div>
@@ -236,5 +217,68 @@
 	<script src="js/jquery.countTo.js"></script>
 	<script src="js/script.js"></script>
 	
+	<!-- Database process -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.register-form').submit(function(event) {
+        event.preventDefault();  // Formun normal submit işlemini engelle
+        var formData = {
+            user_name: $('#username2').val(),
+            password: $('#password2').val(),
+            email: $('#email').val(),
+            phone: $('#phone').val(),
+            city: $('#city').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/register',
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function(response) {
+                alert('Kayıt başarılı!');  // Başarılı kayıt sonrası bildirim
+				window.location.href = '/index.html';
+            },
+            error: function() {
+                alert('Kayıt başarısız.');  // Hata bildirimi
+            }
+        });
+    });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('.login-form').submit(function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        var loginData = {
+            user_name: $('#username').val(), // Ensure that this matches the field name in your backend
+            password: $('#password').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/login',
+            data: JSON.stringify(loginData),
+            contentType: 'application/json',
+            success: function(response) {
+                if (response.status === 'success') {
+                    alert('Login successful!');
+                    window.location.href = '/index.html'; // Redirect on success
+                } else {
+                    alert(response.message); // Show error message from server
+                }
+            },
+            error: function(xhr, status, error) {
+                alert('Login failed: ' + xhr.responseJSON.message);
+            }
+        });
+    });
+});
+
+</script>
+	<!-- Database process -->
 </body>
 </html>

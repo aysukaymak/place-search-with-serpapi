@@ -475,6 +475,81 @@
 		</footer>
 		<!-- End footer -->
 
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function(event) {
+				event.preventDefault(); 
+				
+				// Parse URL parameters
+				const params = new URLSearchParams(window.location.search);
+				const placeType = params.get('type');
+				const placeTitle = params.get('title');
+				const placeUrl = params.get('url');
+				const placeThumbnail = params.get('thumbnail');
+				const placeRating = params.get('rating');
+				const placeReviews = params.get('reviews');
+
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function (position) {
+						const { latitude, longitude } = position.coords;
+	
+						fetch('/similar-places', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({ latitude, longitude, query: placeType })
+						})
+							.then(response => response.json())
+							.then(data => {
+								if (data.status === 'Similar places search completed') {
+									updateSimilarPlaces(data.results);
+								}
+							})
+							.catch(error => {
+								console.error('Error:', error);
+							});
+					});
+				} else {
+					alert('Geolocation is not supported by this browser.');
+				}
+			});
+
+			function updateSimilarPlaces(places) {
+				const placesContainer = document.querySelector('.trending-places__box .owl-carousel');
+				placesContainer.innerHTML = ''; // Clear existing content
+	
+				places.forEach(place => {
+					const placeHTML = `
+						<div class="item">
+							<div class="place-post">
+								<div class="place-post__gal-box">
+									<img class="place-post__image" src="${place.thumbnail}" alt="place-image">
+									<span class="place-post__rating">${place.rating}</span>
+									<a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+								</div>
+								<div class="place-post__content">
+									<h2 class="place-post__title">
+										<a href="listing-detail-fullwidth.html?type=${encodeURIComponent(place.type)}&title=${encodeURIComponent(place.title)}&url=${encodeURIComponent(place.link)}&thumbnail=${encodeURIComponent(place.thumbnail)}&rating=${encodeURIComponent(place.rating)}&reviews=${encodeURIComponent(place.reviews)}">${place.title}</a>
+									</h2>
+									<p class="place-post__description">
+										${place.description}
+										<span class="price-range">
+											<!-- Price or other icons can be dynamically inserted here -->
+										</span>
+									</p>
+									<p class="place-post__address">
+										${place.reviews} reviews
+									</p>
+								</div>
+							</div>
+						</div>
+					`;
+					placesContainer.innerHTML += placeHTML; // Add items to owl-carousel
+				});
+			}
+		</script>
+
 	</div>
 	<!-- End Container -->
 	

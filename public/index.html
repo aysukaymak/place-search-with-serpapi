@@ -24,6 +24,40 @@
             display: flex !important;
             justify-content: space-between;
         }
+
+        #voice-assistant {
+    position: fixed;
+    bottom: 20px;   /* Div'in ekranın sağ alt köşesinden yukarıya olan mesafesi */
+    right: 20px;    /* Div'in ekranın sağ alt köşesinden sola olan mesafesi */
+    width: 200px !important;    /* Div'in genişliği */
+    height: 200px !important;  /* Div'in yüksekliği */
+    background-color: transparent; /* Arka plan rengi şeffaf */
+    overflow: hidden; /* Taşan içerikleri keser */
+    border-radius: 50%; /* Yuvarlak köşeler */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: none;
+}
+
+#record-btn {
+    border: none;
+    background: none;
+    width: 100%;  /* Butonun div'e oranla genişliği */
+    height: 100%; /* Butonun div'e oranla yüksekliği */
+    padding: 0;
+    margin: 0;
+}
+
+#record-btn img {
+    width: 100%;  /* Görselin butona oranla genişliği */
+    height: 100%; /* Görselin butona oranla yüksekliği */
+    object-fit: cover; /* Görselin butonu dolduracak şekilde ayarlanması */
+}
+
+
+
     </style>
 
 </head>
@@ -40,7 +74,7 @@
                 <div class="container">
 
                     <a class="navbar-brand" href="index.html">
-                        <img src="images/marker.png" alt="">
+                        <img src="images/logo52.png" alt="">
                     </a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -763,7 +797,7 @@
                         <div class="col-md-4">
 
                             <div class="footer__widget text-widget">
-                                <img src="images/marker.png" alt="triptip-logo">
+                                <img src="images/logo52.png" alt="triptip-logo">
                                 <p class="footer__widget-description">
                                     Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit, sed diam nonu mmy nibh
                                     euismod tincidunt ut laoreet dolore magna aliquam erat.
@@ -808,6 +842,14 @@
                     </div>
                 </div>
 
+                <div id="voice-assistant" style="position: fixed; bottom: 20px; right: 20px; width: 100px; height: 100px; background-color: transparent; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                    <button onclick="startRecording()" id="record-btn" style="border: none; background: none; width: 100%; height: 100%;">
+                        <img src="upload/ai.gif" alt="Record" style="width: 100%; height: 100%; object-fit: cover;">
+                    </button>
+                </div>
+                
+                
+
                 <div class="footer__down-part footer__down-part-black">
                     <div class="row">
                         <div class="col-md-7">
@@ -840,6 +882,7 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     const query = document.getElementById('searchQuery').value;
+                    console.log(position);
                     const { latitude, longitude } = position.coords;
 
                     fetch('/search-places', {
@@ -892,7 +935,7 @@
     </script>
 
     <!-- Top Trend place  -->
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
@@ -908,7 +951,7 @@
                         .then(response => response.json())
                         .then(data => {
                             if (data.status === "Popular destinations search completed") {
-                                updateTrendingPlaces(data.destinations.sights);
+                                updateTrendingPlaces(data.destinations);
                             }
                         })
                         .catch(error => {
@@ -924,26 +967,26 @@
 
         function updateTrendingPlaces(sights) {
             const placesContainer = document.querySelector('.trending-places__box .owl-carousel');
-            placesContainer.innerHTML = ''; // Mevcut içeriği temizle
+            placesContainer.innerHTML = ''; // Clear existing content
 
             sights.forEach(sight => {
                 const placeHTML = `
                     <div class="item">
                         <div class="place-post">
                             <div class="place-post__gal-box">
-                                <img class="place-post__image" src="${sight.thumbnail}" alt="place-image">
+                                <img class="place-post__image" src="${sight.images[0]}" alt="place-image">
                                 <span class="place-post__rating">${sight.rating}</span>
                                 <a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
                             <div class="place-post__content">
                                 <h2 class="place-post__title">
-                                    <a href="${sight.link}">${sight.title}</a>
+                                    <a href="listing-detail-fullwidth.html?type=${encodeURIComponent(sight.type)}&title=${encodeURIComponent(sight.title)}&url=${encodeURIComponent(sight.link)}&thumbnail=${encodeURIComponent(sight.images[0])}&rating=${encodeURIComponent(sight.rating)}&reviews=${encodeURIComponent(sight.reviews)}">${sight.title}</a>
                                 </h2>
                                 <p class="place-post__description">
                                     ${sight.description}
                                     <span class="price-range">
-                                        <!-- Price or other icons can be dynamically inserted here -->
-                                    </span>
+                                       
+                                     </span>
                                 </p>
                                 <p class="place-post__address">
                                     ${sight.reviews} reviews
@@ -952,10 +995,10 @@
                         </div>
                     </div>
                 `;
-                placesContainer.innerHTML += placeHTML; // Öğeleri owl-carousel içine ekleyin
+                placesContainer.innerHTML += placeHTML; // Add items to owl-carousel
             });
         }
-    </script>
+    </script> --> 
 
     <!-- Top Trend place  -->
 
@@ -963,7 +1006,7 @@
 
 
     <!-- find events  -->
-    
+<!--     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (navigator.geolocation) {
@@ -1003,7 +1046,7 @@
                     <div class="item">
                         <div class="event-post">
                             <div class="event-post__gal-box">
-                                <img class="event-post__image" src="${event.thumbnail}" alt="event-image">
+                                <img class="event-post__image" src="${event.images[0]}" alt="event-image">
                                 <span class="event-post__date">${event.date.start_date}</span>
                                 <a class="event-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
@@ -1029,7 +1072,7 @@
                 eventsContainer.innerHTML += eventHTML; // Öğeleri owl-carousel içine ekleyin
             });
         }
-        </script>
+        </script> -->
         
             
     <!-- find events  -->
@@ -1071,10 +1114,62 @@
             }
         });
     </script>
-    
-
-
     <!-- Search  -->
+
+    <!-- voice recorder -->
+    <script>
+navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(stream => {
+        const mediaRecorder = new MediaRecorder(stream);
+        let audioChunks = [];
+        let isRecording = false;
+
+        window.startRecording = () => {
+            if (isRecording) {
+                mediaRecorder.stop();
+                isRecording = false;
+                // Kısa bir gecikme ekleyin ve yeni kayıt başlatın
+                setTimeout(() => {
+                    startNewRecording();
+                }, 100); // 100 ms gecikme
+            } else {
+                startNewRecording();
+            }
+        };
+
+        function startNewRecording() {
+            audioChunks = [];
+            mediaRecorder.start();
+            console.log('Recording started');
+            isRecording = true;
+            document.getElementById('record-btn').children[0].src = 'upload/voiceRecorder.gif';
+            // Kaydı otomatik olarak 3 saniye sonra durdur
+            setTimeout(() => {
+                if (isRecording) {
+                    mediaRecorder.stop();
+                    isRecording = false;
+                }
+            }, 3000); // 3 saniye sonra kaydı durdur
+        }
+
+        mediaRecorder.addEventListener("dataavailable", event => {
+            audioChunks.push(event.data);
+        });
+
+        mediaRecorder.addEventListener("stop", () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audio = new Audio(audioUrl);
+            audio.play();
+            console.log('Recording stopped and played back');
+            document.getElementById('record-btn').children[0].src = 'upload/ai.gif';
+        });
+    })
+    .catch(error => console.error('Ses kaydı için izin verilmedi:', error));
+
+
+    </script> 
+  <!-- voice recorder -->
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.migrate.js"></script>

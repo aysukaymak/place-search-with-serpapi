@@ -1,9 +1,11 @@
-import { getJson } from "serpapi";
 import dotenv from 'dotenv';
+import { getJson } from "serpapi";
+
+import { inlineImages } from './inline-images.js';
 
 dotenv.config();
 
-const apiKey = `${process.env.SERPAPI_API_KEY}`;
+const apiKey = '1bdbcbdab82fcbf7cde3c0e6cebe3bfd8a33cc0e93c4b0870f098954ec21dd0c';  // Use environment variable for API key
 
 async function findDestinations(query) {
     try {
@@ -13,21 +15,26 @@ async function findDestinations(query) {
             api_key: apiKey
         };
         const json = await getJson(params);
-        console.log(params);        
-        console.log(json.top_sights);
-        return json.top_sights;
+        return json.top_sights.sights;
     } catch (error) {
         console.error("Error finding destinations:", error);
-        throw error;
+        return null;  // Return null or suitable default on error
     }
 }
 
 async function popularDestinations(query) {
     try {
-        return await findDestinations(query);
+        const destinations = await findDestinations(query);
+        if (!destinations) throw new Error('Failed to fetch destinations');
+
+        for (const destination of destinations) {
+            const images = await inlineImages(destination.title, query);
+            destination.images = images;
+        }
+        return destinations;
     } catch (error) {
-        console.error("Error in destinations function:", error);
-        throw error;
+        console.error("Error in popularDestinations function:", error);
+        return [];  // Return an empty array or suitable default on error
     }
 }
 

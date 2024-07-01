@@ -537,7 +537,7 @@
 						<div class="col-md-4">
 
 							<div class="footer__widget text-widget">
-								<img src="images/marker.png" alt="triptip-logo">
+								<img src="images/logo52.png" alt="triptip-logo">
 								<p class="footer__widget-description">
 									Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit, sed diam nonu mmy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. 
 								</p>
@@ -553,12 +553,12 @@
 								<p class="footer__widget-description">
 									Be notified about new locations
 								</p>
-								<form class="footer__subscribe-form">
-									<input class="footer__subscribe-input" type="text" name="email-sub" id="email-sub" placeholder="Enter your Email" />
-									<button class="footer__subscribe-button footer__subscribe-button-primary" type="submit">
-										<i class="la la-arrow-circle-o-right" aria-hidden="true"></i>
-									</button>
+								<form id="addFavPlaceForm">
+
+									
+									<button type="submit">Add Favorite Place</button>
 								</form>
+								
 							</div>
 
 						</div>
@@ -627,5 +627,78 @@
 	<script src="js/jquery.countTo.js"></script>
 	<script src="js/script.js"></script>
 	
+	<!-- favori ekleme -->
+
+	<script>
+$(document).ready(function() {
+    $('#addFavPlaceForm').submit(function(event) {
+        event.preventDefault(); // Formun normal submit işlemini engelle
+
+        var favPlaceData = {
+    "list_id": 487103,
+    "place": {
+        "name": "Central Park",
+        "city": "New York",
+        "location": {
+            "lat": 40.785091,
+            "long": -73.968285
+        },
+        "address": "New York, NY 10024, USA"
+    }
+};
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/add-fav-place',
+            data: JSON.stringify(favPlaceData),
+            contentType: 'application/json',
+            success: function(response) {
+                if (response.status === 'Favorite place added') {
+                    alert('Favorite place added successfully!');
+                    // Yeni favori yeri HTML'de güncelle
+                    addFavoritePlaceToHtml(favPlaceData.place);
+                } else {
+                    alert('Failed to add favorite place: ' + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                alert('Error: ' + (xhr.responseJSON ? xhr.responseJSON.message : error));
+            }
+        });
+    });
+
+    // Favori listeyi HTML'de güncelleme fonksiyonu
+    function addFavoritePlaceToHtml(place) {
+        var placeHtml = `
+            <div class="item">
+                <div class="place-post">
+                    <div class="place-post__gal-box">
+                        <img class="place-post__image" src="upload/default.jpg" alt="place-image">
+                        <span class="place-post__rating">New</span>
+                        <a class="place-post__like active" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="place-post__content">
+                        <p class="place-post__info">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>${place.city}</span>
+                        </p>
+                        <h2 class="place-post__title">
+                            <a href="#">${place.name}</a>
+                        </h2>
+                        <p class="place-post__address">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            ${place.address}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        `;
+        $('#favorites-box .user-detail__favorites-box').append(placeHtml);
+    }
+});
+
+	</script>
+
+	<!-- favori ekleme -->
 </body>
 </html>

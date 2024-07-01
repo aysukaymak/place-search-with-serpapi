@@ -14,9 +14,9 @@ function getRandomInt() {
     return Math.floor(Math.random() * (1000000)) + 1;
 }
 
-async function register(req, res) {
+async function register(req) {
     const db = await connectDB();
-    const { user_name, password, email, phone, city } = req;
+    const { user_name, password, email, phone, city } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const userId = getRandomInt();
@@ -34,50 +34,43 @@ async function register(req, res) {
 
     try {
         const result = await db.collection('users').insertOne(newUser);
-        res({ status: 'User registered', userId: result.insertedId });
-    } catch (error) {
-        res({ status: 'Error', error: error.message });
-    }
-
-    // Create a new place list and reference the user
-    const newPlaceList = new PlaceList({
-        list_id: placeListId,
-        user_id: newUser._id,  
-        visited_place_list: [],
-        fav_place_list: []
-    });
-    try {
+        const newPlaceList = new PlaceList({
+            list_id: placeListId,
+            user_id: newUser._id,  
+            visited_place_list: [],
+            fav_place_list: []
+        });
         await db.collection('place-lists').insertOne(newPlaceList);
-        console.log('User\'s place list inserted successfully!');
-    } catch (err) {
-        console.error('Error inserting new place list:', err);
-    }
-
-    // Set the place list reference in the user
-    newUser.place_list_id = newPlaceList._id;
-    try {
-        await db.collection('users').updateOne({user_id: userId}, newUser);
-        console.log('A place list assigned to new user successfully!');
-    } catch (err) {
-        console.error('Error updated new user:', err);
+        newUser.place_list_id = newPlaceList._id;
+        await db.collection('users').updateOne({user_id: userId}, {$set: {place_list_id: newPlaceList._id}});
+        return { status: 'User registered', userId: result.insertedId };
+    } catch (error) {
+        return { status: 'Error', error: error.message };
     }
 }
 
-async function login(req, res) {
+
+async function login(req) {
     const db = await connectDB();
-    const { user_name, password } = req;
+    const { user_name, password } = req.body;
 
     try {
         const user = await db.collection('users').findOne({ user_name });
-        if (user && await bcrypt.compare(password, user.password)) {
-            const token = jwt.sign({ id: user._id }, jwtSecret);
-            res({ status: 'Login successful', token });
-        } else {
-            res({ status: 'Invalid credentials' });
+        if (!user) {
+            return { status: 'error', message: 'User not found' };
         }
+
+        const passwordIsValid = await bcrypt.compare(password, user.password);
+        if (!passwordIsValid) {
+            return { status: 'error', message: 'Invalid credentials' };
+        }
+
+        const token = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: '1h' });
+        return { status: 'success', message: 'Login successful', token };
     } catch (error) {
-        res({ status: 'Error', error: error.message });
+        return { status: 'error', message: error.message };
     }
 }
+
 
 export { register, login };

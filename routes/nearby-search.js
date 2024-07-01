@@ -1,9 +1,11 @@
 import { getJson } from "serpapi";
 import dotenv from 'dotenv';
 
+import { inlineImages } from './inline-images.js';
+
 dotenv.config();
 
-const apiKey = `${process.env.SERPAPI_API_KEY}`;
+const apiKey = '1bdbcbdab82fcbf7cde3c0e6cebe3bfd8a33cc0e93c4b0870f098954ec21dd0c';
 
 async function searchPlaces(latlong, query) {
     try {
@@ -15,8 +17,6 @@ async function searchPlaces(latlong, query) {
             api_key: apiKey
         };
         const json = await getJson(params);
-        console.log(params);        
-        console.log(json.local_results);
         return json.local_results;
     } catch (error) {
         console.error("Error searching places:", error);
@@ -24,9 +24,14 @@ async function searchPlaces(latlong, query) {
     }
 }
 
-async function nearbySearch(latlong, query) {
+async function nearbySearch(latlong, query, city) {
     try {
-        return await searchPlaces(latlong, query);
+        const places = await searchPlaces(latlong, query);
+        for (const place of places) {
+            //const images = await inlineImages(place.title, query, city);
+            //place.images = images;
+        }
+        return places;
     } catch (error) {
         console.error("Error in nearbySearch function:", error);
         throw error;

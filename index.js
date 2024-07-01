@@ -25,30 +25,47 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/register', async (req, res) => {
-    const response = await register(req.body);
-    res.status(200).json(response);
+    try {
+        const response = await register(req);
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ status: 'Error', error: error.message });
+    }
 });
 
 app.post('/login', async (req, res) => {
-    const response = await login(req.body);
-    res.status(200).json(response);
+    const response = await login(req);
+    if (response.status === 'success') {
+        res.status(200).json(response);
+    } else {
+        res.status(401).json(response);
+    }
 });
 
+
+
 app.post('/add-visited-place', async (req, res) => {
-    const response = await addVisitedPlace(req.body);
-    res.status(200).json(response);
+    await addVisitedPlace(req, res);
 });
 
 app.post('/add-fav-place', async (req, res) => {
-    const response = await addFavPlace(req.body);
-    res.status(200).json(response);
+    try {
+        console.log('Request Body:', req.body); // Gelen isteğin gövdesini konsola yazdır
+        await addFavPlace(req, res);
+    } catch (error) {
+        console.error('Error in /add-fav-place route:', error);
+        res.status(500).json({ status: 'error', message: 'Internal Server Error' });
+    }
 });
+
+
 
 app.post('/search-places', async (req, res) => {
     const { latitude, longitude, query } = req.body;
+    const city = await reverseGeocode(latitude, longitude);
     const latlong = `${latitude},${longitude}`;
     try {
-        const results = await nearbySearch(latlong, query);
+        const results = await nearbySearch(latlong, query, city);
         res.status(200).json({ status: 'Search completed', results });
     } catch (error) {
         res.status(500).json({ status: 'Error', error: error.message });
@@ -67,6 +84,19 @@ app.post('/find-popular', async (req, res) => {
     const city = await reverseGeocode(latitude, longitude);
     const destinationsData = await popularDestinations(city);
     res.status(200).json({ status: 'Popular destinations search completed', destinations: destinationsData });
+});
+
+
+app.post('/similar-places', async (req, res) => {
+    const { latitude, longitude, query } = req.body;
+    const city = await reverseGeocode(latitude, longitude);
+    const latlong = `${latitude},${longitude}`;
+    try {
+        const results = await nearbySearch(latlong, query, city);
+        res.status(200).json({ status: 'Similar places search completed', results });
+    } catch (error) {
+        res.status(500).json({ status: 'Error', error: error.message });
+    }
 });
 
 app.listen(port, () => {

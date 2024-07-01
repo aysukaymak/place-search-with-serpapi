@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const uri = process.env.MONGODB_URI;
+const uri = "mongodb://127.0.0.1:27017/city-guide"
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
