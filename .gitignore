@@ -44,7 +44,7 @@ build/
 *.sln
 
 # HTML
-*.html
+#*.html
 
 # CSS
 *.css

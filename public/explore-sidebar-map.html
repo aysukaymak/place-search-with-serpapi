@@ -313,7 +313,7 @@
 				updateExploreResults(searchResults);
 			}
 		});
-		/*let map;
+		let map;
 		let markers = [];
 
 		function initMap() {
@@ -330,15 +330,15 @@
 				});
 			}
 			
-		}*/
+		}
 
 		function updateExploreResults(results) {
 			const exploreContainer = document.querySelector('.explore__wrap.iso-call');
 			exploreContainer.innerHTML = ''; // Mevcut içeriği temizle
 
 			// Clear existing markers from the map
-			/*markers.forEach(marker => marker.setMap(null));
-			markers = [];*/
+			markers.forEach(marker => marker.setMap(null));
+			markers = [];
 
 			results.forEach(result => {
 				const image = result.images[0] ? result.images[0] : result.thumbnail;
@@ -375,7 +375,7 @@
 				exploreContainer.innerHTML += placeHTML;
 
 				// Add marker to the map
-				/*const marker = new google.maps.marker.AdvancedMarkerElement({
+				const marker = new google.maps.marker.AdvancedMarkerElement({
 					position: { lat: result.gps_coordinates.latitude, lng: result.gps_coordinates.longitude },
 					map: map,
 					title: result.title
@@ -383,13 +383,13 @@
 				markers.push(marker);
 
 				// Extend bounds to include the new marker
-				bounds.extend(marker.getPosition());*/
+				bounds.extend(marker.getPosition());
 			});
 
 			// Adjust the map to fit the new markers
-			/*if (markers.length > 0) {
+			if (markers.length > 0) {
 				map.fitBounds(bounds);
-			}*/
+			}
 		}
 		//document.addEventListener('DOMContentLoaded', initMap);
 	</script>
