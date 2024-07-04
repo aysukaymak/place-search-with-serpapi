@@ -5,7 +5,7 @@ import { inlineImages } from './inline-images.js';
 
 dotenv.config();
 
-const apiKey = 'c8ee9205d74b180c569192152996a97e89b34333ecbfd52556b325edfcce1f5a'; 
+const apiKey = '75a62c2e63ee69e3bb72148cfbe22b2831ea617e1e3cbfa9751cfd47fbd6fccd'; 
 
 async function findDestinations(query) {
     try {

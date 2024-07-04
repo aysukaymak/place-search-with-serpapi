@@ -10,7 +10,7 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5UmfoyvzPUm9l2yjSim0b9SDQs4Gp8Mc&callback=initMap" async defer></script>
 	<link rel="stylesheet" href="css/triptip-assets.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<style>
@@ -304,17 +304,16 @@
 
 	</div>
 	<!-- End Container -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5UmfoyvzPUm9l2yjSim0b9SDQs4Gp8Mc&callback=initMap"
-		async defer></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-			const searchResults = JSON.parse(sessionStorage.getItem('searchResults'));
+			searchResults = JSON.parse(sessionStorage.getItem('searchResults'));
 			if (searchResults) {
 				updateExploreResults(searchResults);
 			}
 		});
 		let map;
 		let markers = [];
+		let bounds;
 
 		function initMap() {
 			if (navigator.geolocation) {
@@ -327,9 +326,15 @@
 						center: userLocation, // Default to San Francisco
 						zoom: 9
 					});
+					bounds = new google.maps.LatLngBounds();
+
+					const searchResults = JSON.parse(sessionStorage.getItem('searchResults'));
+                    if (searchResults) {
+                        updateExploreResults(searchResults);
+                    }
 				});
 			}
-			
+
 		}
 
 		function updateExploreResults(results) {
@@ -375,7 +380,7 @@
 				exploreContainer.innerHTML += placeHTML;
 
 				// Add marker to the map
-				const marker = new google.maps.marker.AdvancedMarkerElement({
+				const marker = new google.maps.Marker({
 					position: { lat: result.gps_coordinates.latitude, lng: result.gps_coordinates.longitude },
 					map: map,
 					title: result.title
@@ -405,7 +410,6 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/retina-1.1.0.min.js"></script>
 	<script src="js/jquery.appear.js"></script>
-	<script src="js/infobox.min.js"></script>
 	<!-- endbuild -->
 	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>

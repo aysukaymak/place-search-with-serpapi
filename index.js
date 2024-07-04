@@ -43,7 +43,6 @@ app.post('/login', async (req, res) => {
 });
 
 
-
 app.post('/add-visited-place', async (req, res) => {
     await addVisitedPlace(req, res);
 });
@@ -57,8 +56,6 @@ app.post('/add-fav-place', async (req, res) => {
         res.status(500).json({ status: 'error', message: 'Internal Server Error' });
     }
 });
-
-
 
 app.post('/search-places', async (req, res) => {
     const { latitude, longitude, query } = req.body;
@@ -85,7 +82,6 @@ app.post('/find-popular', async (req, res) => {
     const destinationsData = await popularDestinations(city);
     res.status(200).json({ status: 'Popular destinations search completed', destinations: destinationsData });
 });
-
 
 app.post('/similar-places', async (req, res) => {
     const { latitude, longitude, query } = req.body;

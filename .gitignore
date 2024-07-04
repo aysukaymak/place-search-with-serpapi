@@ -47,11 +47,11 @@ build/
 #*.html
 
 # CSS
-*.css
+#*.css
 
 # SCSS
-*.scss
-*.sass-cache
+#*.scss
+#*.sass-cache
 
 # Python
 *.py[cod]
