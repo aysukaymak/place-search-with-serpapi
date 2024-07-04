@@ -5,7 +5,7 @@ import { inlineImages } from './inline-images.js';
 
 dotenv.config();
 
-const apiKey = '1bdbcbdab82fcbf7cde3c0e6cebe3bfd8a33cc0e93c4b0870f098954ec21dd0c';
+const apiKey = 'c8ee9205d74b180c569192152996a97e89b34333ecbfd52556b325edfcce1f5a';
 
 async function findEvents(query) {
     try {
@@ -18,7 +18,7 @@ async function findEvents(query) {
             hl: "en"
         };
         const json = await getJson(params);
-        return json.events_results || json.organic_results;
+        return json.events_results.slice(0, 3) || json.organic_results.slice(0, 3);
     } catch (error) {
         console.error("Error finding events:", error);
         throw error;
@@ -32,7 +32,6 @@ async function events(query) {
             const images = await inlineImages(event.title, query);
             event.images = images;
         }
-        //console.log('Events=', events);
         return events;
     } catch (error) {
         console.error("Error in events function:", error);

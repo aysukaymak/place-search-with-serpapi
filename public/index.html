@@ -756,37 +756,6 @@
         </section>
         <!-- End news-block -->
 
-        <!-- banner-block
-		================================================== -->
-        <section class="banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-
-                        <!-- section-header module -->
-                        <div class="section-header">
-                            <h1 class="section-header__title white-style">
-                                Join Our Amazing Community
-                            </h1>
-                            <p class="section-header__description white-style">
-                                Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit, sed diam nonu mmy nibh
-                                euimdod tincidunt ut laoreet dolore magna aliquam erat.
-                            </p>
-                        </div>
-                        <!-- end section-header module -->
-
-                    </div>
-                    <div class="col-md-4">
-                        <a class="btn-default" href="sign-page.html">
-                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                            Register Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End banner-block -->
-
         <!-- footer block module
 			================================================== -->
         <footer class="footer footer-black">
@@ -935,7 +904,7 @@
     </script>
 
     <!-- Top Trend place  -->
-    <!-- <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
@@ -970,17 +939,18 @@
             placesContainer.innerHTML = ''; // Clear existing content
 
             sights.forEach(sight => {
+                const image = sight.images[0] ? sight.images[0] : sight.thumbnail;
                 const placeHTML = `
                     <div class="item">
                         <div class="place-post">
                             <div class="place-post__gal-box">
-                                <img class="place-post__image" src="${sight.images[0]}" alt="place-image">
+                                <img class="place-post__image" src="${image}" alt="place-image">
                                 <span class="place-post__rating">${sight.rating}</span>
                                 <a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
                             <div class="place-post__content">
                                 <h2 class="place-post__title">
-                                    <a href="listing-detail-fullwidth.html?type=${encodeURIComponent(sight.type)}&title=${encodeURIComponent(sight.title)}&url=${encodeURIComponent(sight.link)}&thumbnail=${encodeURIComponent(sight.images[0])}&rating=${encodeURIComponent(sight.rating)}&reviews=${encodeURIComponent(sight.reviews)}">${sight.title}</a>
+                                    <a href="listing-detail-fullwidth.html?type=${encodeURIComponent(sight.type)}&title=${encodeURIComponent(sight.title)}&url=${encodeURIComponent(sight.link)}&thumbnail=${encodeURIComponent(image)}&rating=${encodeURIComponent(sight.rating)}&reviews=${encodeURIComponent(sight.reviews)}">${sight.title}</a>
                                 </h2>
                                 <p class="place-post__description">
                                     ${sight.description}
@@ -998,7 +968,7 @@
                 placesContainer.innerHTML += placeHTML; // Add items to owl-carousel
             });
         }
-    </script> --> 
+    </script>
 
     <!-- Top Trend place  -->
 
@@ -1006,7 +976,6 @@
 
 
     <!-- find events  -->
-<!--     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (navigator.geolocation) {
@@ -1042,11 +1011,12 @@
             eventsContainer.innerHTML = ''; // Mevcut içeriği temizle
         
             events.forEach(event => {
+                const image = event.images[0] ? event.images[0] : event.thumbnail;
                 const eventHTML = `
                     <div class="item">
                         <div class="event-post">
                             <div class="event-post__gal-box">
-                                <img class="event-post__image" src="${event.images[0]}" alt="event-image">
+                                <img class="event-post__image" src="${image}" alt="event-image">
                                 <span class="event-post__date">${event.date.start_date}</span>
                                 <a class="event-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                             </div>
@@ -1072,7 +1042,7 @@
                 eventsContainer.innerHTML += eventHTML; // Öğeleri owl-carousel içine ekleyin
             });
         }
-        </script> -->
+        </script>
         
             
     <!-- find events  -->

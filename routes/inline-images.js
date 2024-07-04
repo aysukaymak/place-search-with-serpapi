@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const apiKey = '1bdbcbdab82fcbf7cde3c0e6cebe3bfd8a33cc0e93c4b0870f098954ec21dd0c';
+const apiKey = 'c8ee9205d74b180c569192152996a97e89b34333ecbfd52556b325edfcce1f5a';
 
 async function searchImages(query, city) {
     try {
@@ -16,8 +16,8 @@ async function searchImages(query, city) {
             api_key: apiKey,
         };
         const json = await getJson(params);
-        const image_list = json.inline_images ? json.inline_images.map(item => item.original)
-            : json.knowledge_graph.header_images ? json.knowledge_graph.header_images.map(item => item.image)
+        const image_list = json.inline_images ? json.inline_images.map(item => item.original).filter(url => url.endsWith('jpeg') || url.endsWith('png') || url.endsWith('jpg') || url.endsWith('webp'))
+            : json.knowledge_graph?.header_images ? json.knowledge_graph.header_images.map(item => item.image).filter(url => url.endsWith('jpeg') || url.endsWith('png') || url.endsWith('jpg') || url.endsWith('webp'))
                 : [];
         return image_list;
     } catch (error) {

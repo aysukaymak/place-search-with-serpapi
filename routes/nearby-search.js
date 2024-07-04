@@ -5,7 +5,7 @@ import { inlineImages } from './inline-images.js';
 
 dotenv.config();
 
-const apiKey = '1bdbcbdab82fcbf7cde3c0e6cebe3bfd8a33cc0e93c4b0870f098954ec21dd0c';
+const apiKey = 'c8ee9205d74b180c569192152996a97e89b34333ecbfd52556b325edfcce1f5a';
 
 async function searchPlaces(latlong, query) {
     try {
@@ -28,8 +28,8 @@ async function nearbySearch(latlong, query, city) {
     try {
         const places = await searchPlaces(latlong, query);
         for (const place of places) {
-            //const images = await inlineImages(place.title, query, city);
-            //place.images = images;
+            const images = await inlineImages(place.title, city);
+            place.images = images;
         }
         return places;
     } catch (error) {

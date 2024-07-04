@@ -5,7 +5,7 @@ import { inlineImages } from './inline-images.js';
 
 dotenv.config();
 
-const apiKey = '1bdbcbdab82fcbf7cde3c0e6cebe3bfd8a33cc0e93c4b0870f098954ec21dd0c';  // Use environment variable for API key
+const apiKey = 'c8ee9205d74b180c569192152996a97e89b34333ecbfd52556b325edfcce1f5a'; 
 
 async function findDestinations(query) {
     try {
@@ -15,18 +15,15 @@ async function findDestinations(query) {
             api_key: apiKey
         };
         const json = await getJson(params);
-        return json.top_sights.sights;
+        return json.top_sights.sights.slice(0, 5);;
     } catch (error) {
         console.error("Error finding destinations:", error);
-        return null;  // Return null or suitable default on error
     }
 }
 
 async function popularDestinations(query) {
     try {
         const destinations = await findDestinations(query);
-        if (!destinations) throw new Error('Failed to fetch destinations');
-
         for (const destination of destinations) {
             const images = await inlineImages(destination.title, query);
             destination.images = images;
@@ -34,7 +31,6 @@ async function popularDestinations(query) {
         return destinations;
     } catch (error) {
         console.error("Error in popularDestinations function:", error);
-        return [];  // Return an empty array or suitable default on error
     }
 }
 

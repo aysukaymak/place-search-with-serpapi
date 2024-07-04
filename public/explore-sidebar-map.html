@@ -2,6 +2,7 @@
 
 
 <html lang="en" class="no-js">
+
 <head>
 	<title>Bitirme Projesi</title>
 
@@ -9,79 +10,82 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
+
 	<link rel="stylesheet" href="css/triptip-assets.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
- <style>/* Kart kutusunun stilini düzenlemek için */
-	.item {
-		border: 1px solid #e0e0e0;
-		border-radius: 10px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		overflow: hidden;
-		margin-bottom: 20px;
-		background-color: #fff;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-	}
-	
-	.item:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-	}
-	
-	.place-post__gal-box {
-		position: relative;
-		width: 100%;
-		padding-bottom: 75%;
-		overflow: hidden;
-		background: none; /* Karartıyı kaldırmak için */
-	}
-	
-	.place-post__image {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		border-radius: 8px 8px 0 0; /* Yuvarlak köşeler */
-	}
-	
+	<style>
+		/* Kart kutusunun stilini düzenlemek için */
+		.item {
+			border: 1px solid #e0e0e0;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+			margin-bottom: 20px;
+			background-color: #fff;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
 
-	
+		.item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		}
 
-	
-	.place-post__content {
-		text-align: center;
-		padding: 20px;
-		background: white; /* Beyaz arka plan */
-	}
-	
-	.place-post__title a {
-		color: #333;
-		font-size: 1.2em;
-		font-weight: bold;
-		text-decoration: none;
-	}
-	
-	.place-post__description, .place-post__address, .place-post__info {
-		margin: 10px 0;
-	}
-	
-	.place-post__description span {
-		color: #ff6347;
-	}
-	
-	.place-post__address {
-		color: #666;
-		font-size: 0.9em;
-	}
-	
-	.place-post__info {
-		font-size: 0.9em;
-		color: #999;
-	}
+		.place-post__gal-box {
+			position: relative;
+			width: 100%;
+			padding-bottom: 75%;
+			overflow: hidden;
+			background: none;
+			/* Karartıyı kaldırmak için */
+		}
+
+		.place-post__image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 8px 8px 0 0;
+			/* Yuvarlak köşeler */
+		}
+
+		.place-post__content {
+			text-align: center;
+			padding: 20px;
+			background: white;
+			/* Beyaz arka plan */
+		}
+
+		.place-post__title a {
+			color: #333;
+			font-size: 1.2em;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		.place-post__description,
+		.place-post__address,
+		.place-post__info {
+			margin: 10px 0;
+		}
+
+		.place-post__description span {
+			color: #ff6347;
+		}
+
+		.place-post__address {
+			color: #666;
+			font-size: 0.9em;
+		}
+
+		.place-post__info {
+			font-size: 0.9em;
+			color: #999;
+		}
 	</style>
 </head>
+
 <body>
 
 	<!-- Container -->
@@ -97,220 +101,252 @@
 						<img src="images/marker.png" alt="">
 					</a>
 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
-                            <li><a href="index.html">Homepage</a></li>
-                            <li><a href="explore-sidebar-map.html">Explore</a></li>
-                            <li><a href="blog.html">Blog</a></li>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="explore-sidebar-map.html">Explore</a></li>
+							<li><a href="blog.html">Blog</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 						<ul class="navbar-nav ml-auto right-list">
-							<li><a href="sign-page.html"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Sign In</a></li>
-							<li><a href="sign-page.html"><i class="fa fa-user-o" aria-hidden="true"></i> Register</a></li>
+							<li><a href="sign-page.html"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+									Sign In</a></li>
+							<li><a href="sign-page.html"><i class="fa fa-user-o" aria-hidden="true"></i> Register</a>
+							</li>
 						</ul>
 						<a href="user-page.html" class="add-list-btn btn-default"><i aria-hidden="true"></i>Profile</a>
 					</div>
 				</div>
-				</div>
-			</nav>
-		</header>
-		<!-- End Header -->
+	</div>
+	</nav>
+	</header>
+	<!-- End Header -->
 
-		<!-- explore-module
+	<!-- explore-module
 			================================================== -->
-		<section class="explore">
-			<div class="explore__side-content">
+	<section class="explore">
+		<div class="explore__side-content">
 
-				<div class="explore__filter explore__filter-side">
-					<form class="explore__form">
-						<h2 class="explore__filter-title">
-							<span>Results For:</span> What Are You looking for
-						</h2>
+			<div class="explore__filter explore__filter-side">
+				<form class="explore__form">
+					<h2 class="explore__filter-title">
+						<span>Results For:</span> What Are You looking for
+					</h2>
 
-					
 
-						<div class="row">
 
-						</div>
-						
-					</form>
-				</div>
-				<div class="explore__box explore__box-side">
-
-					<div class="explore__wrap iso-call">
-
-						<div class="item">
-
-							<!-- place-post module -->
-							<div class="place-post">
-								<div class="place-post__gal-box">
-									<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
-									<span class="place-post__rating">9.3</span>
-									<a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-								</div>
-								<div class="place-post__content">
-									<p class="place-post__info">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>
-										<span class="open">Open</span> until 8:00 PM
-									</p>
-									<h2 class="place-post__title">
-										<a href="listing-detail-fullwidth.html">Fifteen Restaurant</a>
-									</h2>
-									<p class="place-post__description">
-										Restaurant
-										<span>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd" aria-hidden="true"></i>
-											<i class="fa fa-usd" aria-hidden="true"></i>
-										</span>
-									</p>
-									<p class="place-post__address">
-										<i class="fa fa-map-marker" aria-hidden="true"></i>
-										1149 3rd St (Wilshire), Santa Monica
-									</p>
-								</div>
-							</div>
-							<div class="place-post">
-								<div class="place-post__gal-box">
-									<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
-									<span class="place-post__rating">9.3</span>
-									<a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-								</div>
-								<div class="place-post__content">
-									<p class="place-post__info">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>
-										<span class="open">Open</span> until 8:00 PM
-									</p>
-									<h2 class="place-post__title">
-										<a href="listing-detail-fullwidth.html">Fifteen Restaurant</a>
-									</h2>
-									<p class="place-post__description">
-										Restaurant
-										<span>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd" aria-hidden="true"></i>
-											<i class="fa fa-usd" aria-hidden="true"></i>
-										</span>
-									</p>
-									<p class="place-post__address">
-										<i class="fa fa-map-marker" aria-hidden="true"></i>
-										1149 3rd St (Wilshire), Santa Monica
-									</p>
-								</div>
-							</div>
-							<!-- end place-post module -->
-							
-						</div>	
-
-						<div class="item">
-
-							<!-- place-post module -->
-							<div class="place-post">
-								<div class="place-post__gal-box">
-									<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
-									<span class="place-post__rating">9.0</span>
-									<a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-								</div>
-								<div class="place-post__content">
-									<p class="place-post__info">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>
-										<span class="closed">Closed</span> until 11:00 AM
-									</p>
-									<h2 class="place-post__title">
-										<a href="listing-detail-fullwidth.html">Frankies 457 Spuntino</a>
-									</h2>
-									<p class="place-post__description">
-										Cafe
-										<span>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd" aria-hidden="true"></i>
-										</span>
-									</p>
-									<p class="place-post__address">
-										<i class="fa fa-map-marker" aria-hidden="true"></i>
-										457 Court St, Brooklyn
-									</p>
-								</div>
-							</div>
-							<div class="place-post">
-								<div class="place-post__gal-box">
-									<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
-									<span class="place-post__rating">9.0</span>
-									<a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-								</div>
-								<div class="place-post__content">
-									<p class="place-post__info">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>
-										<span class="closed">Closed</span> until 11:00 AM
-									</p>
-									<h2 class="place-post__title">
-										<a href="listing-detail-fullwidth.html">Frankies 457 Spuntino</a>
-									</h2>
-									<p class="place-post__description">
-										Cafe
-										<span>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd red-col" aria-hidden="true"></i>
-											<i class="fa fa-usd" aria-hidden="true"></i>
-										</span>
-									</p>
-									<p class="place-post__address">
-										<i class="fa fa-map-marker" aria-hidden="true"></i>
-										457 Court St, Brooklyn
-									</p>
-								</div>
-							</div>
-							<!-- end place-post module -->
-							
-						</div>
+					<div class="row">
 
 					</div>
 
+				</form>
+			</div>
+			<div class="explore__box explore__box-side">
 
+				<div class="explore__wrap iso-call">
+
+					<div class="item">
+
+						<!-- place-post module -->
+						<div class="place-post">
+							<div class="place-post__gal-box">
+								<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+								<span class="place-post__rating">9.3</span>
+								<a class="place-post__like" href="#"><i class="fa fa-heart-o"
+										aria-hidden="true"></i></a>
+							</div>
+							<div class="place-post__content">
+								<p class="place-post__info">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="open">Open</span> until 8:00 PM
+								</p>
+								<h2 class="place-post__title">
+									<a href="listing-detail-fullwidth.html">Fifteen Restaurant</a>
+								</h2>
+								<p class="place-post__description">
+									Restaurant
+									<span>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd" aria-hidden="true"></i>
+										<i class="fa fa-usd" aria-hidden="true"></i>
+									</span>
+								</p>
+								<p class="place-post__address">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+									1149 3rd St (Wilshire), Santa Monica
+								</p>
+							</div>
+						</div>
+						<div class="place-post">
+							<div class="place-post__gal-box">
+								<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+								<span class="place-post__rating">9.3</span>
+								<a class="place-post__like" href="#"><i class="fa fa-heart-o"
+										aria-hidden="true"></i></a>
+							</div>
+							<div class="place-post__content">
+								<p class="place-post__info">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="open">Open</span> until 8:00 PM
+								</p>
+								<h2 class="place-post__title">
+									<a href="listing-detail-fullwidth.html">Fifteen Restaurant</a>
+								</h2>
+								<p class="place-post__description">
+									Restaurant
+									<span>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd" aria-hidden="true"></i>
+										<i class="fa fa-usd" aria-hidden="true"></i>
+									</span>
+								</p>
+								<p class="place-post__address">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+									1149 3rd St (Wilshire), Santa Monica
+								</p>
+							</div>
+						</div>
+						<!-- end place-post module -->
+
+					</div>
+
+					<div class="item">
+
+						<!-- place-post module -->
+						<div class="place-post">
+							<div class="place-post__gal-box">
+								<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+								<span class="place-post__rating">9.0</span>
+								<a class="place-post__like" href="#"><i class="fa fa-heart-o"
+										aria-hidden="true"></i></a>
+							</div>
+							<div class="place-post__content">
+								<p class="place-post__info">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="closed">Closed</span> until 11:00 AM
+								</p>
+								<h2 class="place-post__title">
+									<a href="listing-detail-fullwidth.html">Frankies 457 Spuntino</a>
+								</h2>
+								<p class="place-post__description">
+									Cafe
+									<span>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd" aria-hidden="true"></i>
+									</span>
+								</p>
+								<p class="place-post__address">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+									457 Court St, Brooklyn
+								</p>
+							</div>
+						</div>
+						<div class="place-post">
+							<div class="place-post__gal-box">
+								<img class="place-post__image" src="upload/cafe2.jpg" alt="place-image">
+								<span class="place-post__rating">9.0</span>
+								<a class="place-post__like" href="#"><i class="fa fa-heart-o"
+										aria-hidden="true"></i></a>
+							</div>
+							<div class="place-post__content">
+								<p class="place-post__info">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="closed">Closed</span> until 11:00 AM
+								</p>
+								<h2 class="place-post__title">
+									<a href="listing-detail-fullwidth.html">Frankies 457 Spuntino</a>
+								</h2>
+								<p class="place-post__description">
+									Cafe
+									<span>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd red-col" aria-hidden="true"></i>
+										<i class="fa fa-usd" aria-hidden="true"></i>
+									</span>
+								</p>
+								<p class="place-post__address">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+									457 Court St, Brooklyn
+								</p>
+							</div>
+						</div>
+						<!-- end place-post module -->
+
+					</div>
 
 				</div>
+
+
+
 			</div>
+		</div>
 
-			<div class="explore__map-side">
-				<!-- map block
+		<div class="explore__map-side">
+			<!-- map block
 				================================================== -->
-				<div id="map" data-map-zoom="9"></div>
-				<!-- End map block -->
-			</div>	
+			<div id="map" data-map-zoom="9"></div>
+			<!-- End map block -->
+		</div>
 
-		</section>
-		<!-- End explore-module -->
+	</section>
+	<!-- End explore-module -->
 
 	</div>
 	<!-- End Container -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5UmfoyvzPUm9l2yjSim0b9SDQs4Gp8Mc&callback=initMap"
+		async defer></script>
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
+		document.addEventListener('DOMContentLoaded', function () {
 			const searchResults = JSON.parse(sessionStorage.getItem('searchResults'));
 			if (searchResults) {
 				updateExploreResults(searchResults);
 			}
 		});
-	
+		/*let map;
+		let markers = [];
+
+		function initMap() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(position => {
+					const userLocation = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+					map = new google.maps.Map(document.getElementById('map'), {
+						center: userLocation, // Default to San Francisco
+						zoom: 9
+					});
+				});
+			}
+			
+		}*/
+
 		function updateExploreResults(results) {
 			const exploreContainer = document.querySelector('.explore__wrap.iso-call');
 			exploreContainer.innerHTML = ''; // Mevcut içeriği temizle
-	
+
+			// Clear existing markers from the map
+			/*markers.forEach(marker => marker.setMap(null));
+			markers = [];*/
+
 			results.forEach(result => {
-				const thumbnail = result.thumbnail ? result.thumbnail : 'upload/cafe2.jpg';
+				const image = result.images[0] ? result.images[0] : result.thumbnail;
 				const placeHTML = `
 					<div class="item">
 						<div class="place-post">
 							<div class="place-post__gal-box">
-								<img class="place-post__image" src="${thumbnail}" alt="place-image">
+								<img class="place-post__image" src="${image}" alt="place-image">
 								<span class="place-post__rating">${result.rating}</span>
 								<a class="place-post__like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 							</div>
@@ -337,33 +373,45 @@
 					</div>
 				`;
 				exploreContainer.innerHTML += placeHTML;
+
+				// Add marker to the map
+				/*const marker = new google.maps.marker.AdvancedMarkerElement({
+					position: { lat: result.gps_coordinates.latitude, lng: result.gps_coordinates.longitude },
+					map: map,
+					title: result.title
+				});
+				markers.push(marker);
+
+				// Extend bounds to include the new marker
+				bounds.extend(marker.getPosition());*/
 			});
+
+			// Adjust the map to fit the new markers
+			/*if (markers.length > 0) {
+				map.fitBounds(bounds);
+			}*/
 		}
+		//document.addEventListener('DOMContentLoaded', initMap);
 	</script>
-	
-	
-	
-	
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.migrate.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI"></script>
 	<!--build:js js/triptip-plugins.min.js -->
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/select2.min.js"></script>
 	<script src="js/jquery.imagesloaded.min.js"></script>
-  	<script src="js/jquery.isotope.min.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/retina-1.1.0.min.js"></script>
 	<script src="js/jquery.appear.js"></script>
 	<script src="js/infobox.min.js"></script>
-	<script src="js/markerclusterer.js"></script>
-	<script src="js/maps.js"></script>
 	<!-- endbuild -->
 	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.countTo.js"></script>
 	<script src="js/script.js"></script>
-	
+
 </body>
+
 </html>
