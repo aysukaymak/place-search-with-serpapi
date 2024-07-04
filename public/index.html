@@ -909,6 +909,12 @@
                                 updateTrendingPlaces(data.destinations);
                             }
                         })
+                        .then(data => {
+                            if (data.status ===  "Popular destinations search completed") {
+                                sessionStorage.setItem('popular', JSON.stringify(data.destinations));
+                                //window.location.href = 'explore-sidebar-map.html';
+                            }
+                        })
                         .catch(error => {
                             console.error('Error:', error);
                         });
